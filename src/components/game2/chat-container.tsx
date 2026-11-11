@@ -72,7 +72,7 @@ export function ChatContainer({
         </span>
       </div>
 
-      <div className="max-h-[610px] space-y-2.5 overflow-y-auto bg-[#F6EFE8] px-3 py-4 sm:px-5">
+      <div className="max-h-[610px] space-y-2.5 overflow-y-auto bg-[#F0EEF6] px-3 py-4 sm:px-5">
         <div className="mx-auto w-fit rounded-full bg-white/70 px-3 py-1 text-[0.6rem] font-semibold text-ink-faint">
           Hoy · 21:08
         </div>

@@ -207,7 +207,7 @@ export default function HubPage() {
             </h1>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-ink-soft sm:text-base">
               {completionCount === 0
-                ? "Elige un juego para empezar. No hay una forma correcta de recorrer esta brújula: lo importante es lo que descubras en el camino."
+                ? "Elige un juego para empezar. No hay una forma correcta de recorrer esta experiencia: lo importante es lo que descubras en el camino."
                 : completionCount === 3
                   ? "Completaste los tres juegos. Puedes repasar cualquier recorrido, probar otras decisiones o volver cuando lo necesites."
                   : `Ya completaste ${completionCount} de 3 juegos. Puedes seguir con el siguiente o volver a uno anterior.`}
@@ -253,7 +253,7 @@ export default function HubPage() {
               </p>
               <p className="mt-2 font-display text-2xl font-semibold">
                 {completionCount === 3
-                  ? "Brújula completa"
+                  ? "Recorrido completo"
                   : completionCount === 0
                     ? "Recién comenzando"
                     : "En movimiento"}

@@ -748,7 +748,7 @@ export const storyNodes: Record<string, StoryNode> = {
     isEnding: true,
     ending: {
       id: "mi-voz",
-      title: "Mi voz tiene brújula",
+      title: "Mi voz tiene rumbo",
       subtitle: "Final · Reconociste el patrón y elegiste tu red",
       kind: "empowering",
       paragraphs: [

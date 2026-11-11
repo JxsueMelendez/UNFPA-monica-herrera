@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowLeft, Compass, Sparkles, Trophy } from "lucide-react";
+import { ArrowLeft, Compass, Info, Sparkles, Trophy } from "lucide-react";
 import { useUserProgress } from "@/lib/use-user-progress";
 import { getInitials } from "@/lib/utils";
 
@@ -19,7 +19,7 @@ export function AppHeader() {
         <Link
           href={progress.userName ? "/hub" : "/"}
           className="group flex min-w-0 items-center gap-3 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-plum/40"
-          aria-label="Ir al inicio de Brújula"
+          aria-label="Ir al inicio"
         >
           <span className="relative grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-plum text-cream shadow-soft transition group-hover:rotate-6">
             <Compass className="h-5 w-5" />
@@ -27,15 +27,24 @@ export function AppHeader() {
           </span>
           <span className="min-w-0">
             <span className="block font-display text-lg font-semibold leading-none text-ink">
-              Brújula
+              UNFPA
             </span>
             <span className="mt-1 hidden text-[0.68rem] font-medium uppercase tracking-[0.14em] text-ink-faint sm:block">
-              Relaciones, límites y proyecto de vida
+              Fondo de Población de las Naciones Unidas
             </span>
           </span>
         </Link>
 
         <div className="flex items-center gap-2">
+          <Link
+            href="/sobre-nosotros"
+            aria-label="Sobre nosotros"
+            className="inline-flex h-9 items-center gap-1.5 rounded-full px-3 text-sm font-semibold text-ink-soft transition hover:bg-sand hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-plum/40"
+          >
+            <Info className="h-4 w-4 sm:hidden" />
+            <span className="hidden sm:inline">Sobre nosotros</span>
+          </Link>
+
           {isHub ? (
             <span className="hidden items-center gap-1.5 rounded-full border border-line bg-white/70 px-3 py-1.5 text-xs font-semibold text-ink-soft sm:inline-flex">
               <Trophy className="h-3.5 w-3.5 text-gold-deep" />

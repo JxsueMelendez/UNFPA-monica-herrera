@@ -18,29 +18,29 @@ const config: Config = {
           faint: "#8A7C94",
         },
         plum: {
-          DEFAULT: "#4B2A5E",
-          deep: "#2F163D",
-          soft: "#6D4B80",
-          mist: "#F1E8F6",
+          DEFAULT: "#5C4989",
+          deep: "#43366E",
+          soft: "#7D6DB3",
+          mist: "#EDEAF6",
         },
         coral: {
-          DEFAULT: "#F26B5E",
-          soft: "#FFE3DE",
-          deep: "#C8483D",
+          DEFAULT: "#5C4989",
+          soft: "#E9E5F5",
+          deep: "#43366E",
         },
         teal: {
-          DEFAULT: "#218F82",
-          soft: "#DDF4EF",
-          deep: "#146B61",
+          DEFAULT: "#32584D",
+          soft: "#E1EAE4",
+          deep: "#22403A",
         },
         gold: {
-          DEFAULT: "#E9A83A",
-          soft: "#FDF0D6",
-          deep: "#A87318",
+          DEFAULT: "#F6D85D",
+          soft: "#FDF7DA",
+          deep: "#9C7B1D",
         },
         rose: {
-          DEFAULT: "#D95C86",
-          soft: "#FCE4EC",
+          DEFAULT: "#7D6DB3",
+          soft: "#E9E4F5",
         },
       },
       fontFamily: {
@@ -52,15 +52,15 @@ const config: Config = {
         "5xl": "2.75rem",
       },
       boxShadow: {
-        soft: "0 18px 50px -24px rgba(47, 22, 61, 0.28)",
-        lift: "0 28px 70px -30px rgba(47, 22, 61, 0.38)",
-        glow: "0 0 0 1px rgba(242, 107, 94, 0.12), 0 24px 60px -28px rgba(242, 107, 94, 0.5)",
+        soft: "0 18px 50px -24px rgba(67, 54, 110, 0.28)",
+        lift: "0 28px 70px -30px rgba(67, 54, 110, 0.38)",
+        glow: "0 0 0 1px rgba(92, 73, 137, 0.14), 0 24px 60px -28px rgba(92, 73, 137, 0.5)",
       },
       backgroundImage: {
         "grid-warm":
-          "linear-gradient(to right, rgba(75, 42, 94, 0.055) 1px, transparent 1px), linear-gradient(to bottom, rgba(75, 42, 94, 0.055) 1px, transparent 1px)",
+          "linear-gradient(to right, rgba(92, 73, 137, 0.055) 1px, transparent 1px), linear-gradient(to bottom, rgba(92, 73, 137, 0.055) 1px, transparent 1px)",
         "dots-warm":
-          "radial-gradient(rgba(75, 42, 94, 0.14) 1px, transparent 1px)",
+          "radial-gradient(rgba(92, 73, 137, 0.14) 1px, transparent 1px)",
       },
       keyframes: {
         float: {

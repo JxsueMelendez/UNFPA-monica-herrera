@@ -49,7 +49,7 @@ export function MessageBubble({
 
       <div
         className={cn(
-          "relative max-w-[84%] rounded-2xl px-3.5 py-2.5 text-sm shadow-sm ring-offset-2 ring-offset-[#F6EFE8] transition duration-200 sm:max-w-[76%]",
+          "relative max-w-[84%] rounded-2xl px-3.5 py-2.5 text-sm shadow-sm ring-offset-2 ring-offset-[#F0EEF6] transition duration-200 sm:max-w-[76%]",
           isTeen
             ? "rounded-br-md bg-plum text-cream"
             : "rounded-bl-md border border-line/70 bg-white text-ink",

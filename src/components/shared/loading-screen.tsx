@@ -1,6 +1,6 @@
 import { LoaderCircle } from "lucide-react";
 
-export function LoadingScreen({ label = "Cargando tu brújula..." }: { label?: string }) {
+export function LoadingScreen({ label = "Cargando tu experiencia..." }: { label?: string }) {
   return (
     <div className="grid min-h-[50vh] place-items-center">
       <div className="flex flex-col items-center gap-3 text-ink-soft">

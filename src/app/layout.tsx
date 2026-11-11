@@ -9,21 +9,23 @@ import { ProgressProvider } from "@/lib/use-user-progress";
 
 export const metadata: Metadata = {
   title: {
-    default: "Brújula · Relaciones, límites y proyecto de vida",
-    template: "%s · Brújula",
+    default: "UNFPA · Relaciones, límites y proyecto de vida",
+    template: "%s · UNFPA",
   },
   description:
-    "Experiencia educativa interactiva para adolescentes: identifica dinámicas de control y manipulación, pon límites y cuida tu proyecto de vida.",
-  applicationName: "Brújula",
+    "Experiencia interactiva del UNFPA para adolescentes: explora historias, descubre mensajes ocultos, identifica señales de alerta y diferencía el amor del control.",
+  applicationName: "UNFPA",
   keywords: [
+    "UNFPA",
+    "El Salvador",
     "adolescentes",
     "relaciones saludables",
-    "límites",
+    "relaciones impropias",
+    "señales de alerta",
     "autonomía",
     "proyecto de vida",
-    "educación",
   ],
-  authors: [{ name: "Proyecto Brújula" }],
+  authors: [{ name: "UNFPA" }],
 };
 
 export const viewport: Viewport = {

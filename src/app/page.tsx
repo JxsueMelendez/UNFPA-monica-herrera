@@ -116,9 +116,10 @@ export default function OnboardingPage() {
           </div>
 
           <h1 className="mt-6 text-balance font-display text-[2.65rem] font-semibold leading-[0.98] tracking-[-0.04em] text-ink sm:text-6xl">
-            Tu vida no necesita un candado.
+            ¿Alguna vez te has preguntado si todo lo que vemos en redes
+            sociales sobre el amor
             <span className="relative mt-2 block text-coral">
-              Necesita una brújula.
+              es realmente como parece?
               <svg
                 aria-hidden
                 viewBox="0 0 300 18"
@@ -136,9 +137,9 @@ export default function OnboardingPage() {
           </h1>
 
           <p className="mt-7 max-w-xl text-pretty text-base leading-relaxed text-ink-soft sm:text-lg">
-            Un recorrido de tres juegos para reconocer el control que se disfraza
-            de amor, poner límites y proteger eso que te hace tú: tus amistades,
-            tus sueños y tu proyecto de vida.
+            En este espacio podrás explorar diferentes historias, situaciones y
+            mensajes que te invitarán a cuestionar lo que muchas veces
+            consideramos normal en una relación.
           </p>
 
           <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-ink-soft">
@@ -261,7 +262,7 @@ export default function OnboardingPage() {
                 disabled={!isReady || isSubmitting}
               >
                 {isSubmitting
-                  ? "Preparando tu brújula..."
+                  ? "Preparando tu experiencia..."
                   : progress.userName
                     ? "Guardar y continuar"
                     : "Empezar mi recorrido"}
@@ -286,12 +287,13 @@ export default function OnboardingPage() {
           <div>
             <Badge variant="gold">Tres formas de mirar</Badge>
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-[-0.02em] text-ink sm:text-4xl">
-              Tres juegos, una misma brújula
+              ¿Para qué sirven nuestros juegos?
             </h2>
           </div>
           <p className="max-w-md text-sm leading-relaxed text-ink-soft">
-            Cada juego trabaja una habilidad distinta: detectar, nombrar y decidir.
-            Puedes hacerlos en orden o elegir el que más te llame.
+            A través de experiencias interactivas podrás tomar decisiones,
+            descubrir mensajes ocultos, identificar señales de alerta y
+            diferenciar el amor del control.
           </p>
         </div>
 
@@ -337,18 +339,16 @@ export default function OnboardingPage() {
             <div className="flex items-center gap-2 text-gold">
               <HeartHandshake className="h-5 w-5" />
               <span className="text-xs font-bold uppercase tracking-[0.16em]">
-                Antes de empezar
+                Una iniciativa del UNFPA
               </span>
             </div>
             <h2 className="mt-4 max-w-2xl font-display text-2xl font-semibold leading-tight sm:text-3xl">
-              Esto no es un examen sobre tu relación. Es un espacio para mirar
-              con más claridad.
+              ¡Explora, juega y descubre nuevas formas de ver las relaciones!
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-cream/75">
-              Los personajes y las conversaciones son ficticios. Si algo de lo
-              que ves te resuena, no significa que sea tu culpa. Hablar con una
-              persona de confianza o con una institución especializada también es
-              una forma de poner límites.
+              Cada juego está diseñado para ayudarte a reflexionar sobre las
+              relaciones, reconocer situaciones de desigualdad y comprender la
+              importancia de tu autonomía, tus límites y tu proyecto de vida.
             </p>
           </div>
           <div className="flex flex-col gap-2 text-sm text-cream/80">

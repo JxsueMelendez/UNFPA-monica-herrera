@@ -7,7 +7,7 @@ Documento de continuidad para retomar el desarrollo sin releer todo el código.
 
 ## 1. Qué es este proyecto
 
-**Brújula** es una experiencia web educativa e interactiva en español para adolescentes. Busca que la persona reconozca dinámicas de control y manipulación que se disfrazan de afecto, practique límites y cuide su proyecto de vida y su red de apoyo.
+**UNFPA** (antes *Brújula*) es una experiencia web educativa e interactiva en español para adolescentes, con marca del Fondo de Población de las Naciones Unidas (UNFPA, oficina de El Salvador). Busca que la persona reconozca dinámicas de control y manipulación que se disfrazan de afecto, practique límites y cuide su proyecto de vida y su red de apoyo.
 
 - **Tagline:** “Relaciones, límites y proyecto de vida”.
 - **Audiencia:** adolescentes (aprox. 14–18 años), con lenguaje cercano y sin revictimización.
@@ -45,6 +45,7 @@ Documento de continuidad para retomar el desarrollo sin releer todo el código.
 | Ruta | Contenido |
 |---|---|
 | `/` | Onboarding: hero + captura de nombre |
+| `/sobre-nosotros` | Página informativa: iniciativa UNFPA, propósito, aprende jugando, descubrimientos, compromiso, FAQ y contacto de UNFPA El Salvador |
 | `/hub` | Panel de progreso, tarjetas de juegos, reset |
 | `/juego-1` | Swipe de publicaciones |
 | `/juego-2` | Inspector de chat |
@@ -213,7 +214,7 @@ Rutas de prueba verificadas (5 decisiones cada una):
 
 ## 7. Diseño y accesibilidad
 
-- Paleta cálida: `plum`, `coral`, `gold`, `teal`, `sand`, `cream`, `ink`.
+- Paleta UNFPA: morado `#5C4989` (tokens `plum` y `coral`), amarillo `#F6D85D` (`gold`) y verde `#32584D` (`teal`), con variantes deep/soft/mist derivadas, sobre neutros cálidos (`sand`, `cream`, `ink`).
 - Radios amplios, sombras suaves, gradientes; estética editorial y cercana.
 - Componentes UI propios en `src/components/ui/`.
 - `prefers-reduced-motion` desactiva animaciones/sonidos.
