@@ -10,6 +10,7 @@ import {
   type ReactNode,
 } from "react";
 import {
+<<<<<<< HEAD
   SESSIONS_KEY,
   clearProgress,
   createSession as createSessionInStore,
@@ -21,13 +22,23 @@ import {
   setActiveSession as persistActiveSession,
   writeProgress,
   writeSessionsStore,
+=======
+  STORAGE_KEY,
+  clearProgress,
+  defaultProgress,
+  readProgress,
+  writeProgress,
+>>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
 } from "@/lib/storage";
 import type {
   Game1Progress,
   Game2Progress,
   Game3Progress,
   GameKey,
+<<<<<<< HEAD
   Session,
+=======
+>>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
   UserProgress,
 } from "@/lib/types";
 
@@ -35,21 +46,28 @@ interface ProgressContextValue {
   progress: UserProgress;
   isReady: boolean;
   completionCount: number;
+<<<<<<< HEAD
   sessions: Session[];
   activeSessionId: string | null;
+=======
+>>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
   setUserName: (name: string) => void;
   updateGame1: (patch: Partial<Game1Progress>) => void;
   updateGame2: (patch: Partial<Game2Progress>) => void;
   updateGame3: (patch: Partial<Game3Progress>) => void;
   resetGame: (game: GameKey) => void;
   resetAll: () => void;
+<<<<<<< HEAD
   switchSession: (id: string) => void;
   createSession: (name: string) => void;
+=======
+>>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
 }
 
 const ProgressContext = createContext<ProgressContextValue | null>(null);
 
 export function ProgressProvider({ children }: { children: ReactNode }) {
+<<<<<<< HEAD
   const [progress, setProgress] = useState<UserProgress>(() => structuredClone(defaultProgress));
   const [sessions, setSessions] = useState<Session[]>([]);
   const [activeSessionId, setActiveSessionId] = useState<string | null>(null);
@@ -99,6 +117,28 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     createSessionInStore(name);
     sync();
   }, [sync]);
+=======
+  const [progress, setProgress] = useState<UserProgress>(() =>
+    structuredClone(defaultProgress),
+  );
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    setProgress(readProgress());
+    setIsReady(true);
+
+    const handleStorage = (event: StorageEvent) => {
+      if (event.key === STORAGE_KEY) setProgress(readProgress());
+    };
+
+    window.addEventListener("storage", handleStorage);
+    return () => window.removeEventListener("storage", handleStorage);
+  }, []);
+
+  useEffect(() => {
+    if (isReady) writeProgress(progress);
+  }, [progress, isReady]);
+>>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
 
   const setUserName = useCallback((name: string) => {
     const cleanName = name.trim().slice(0, 32);
@@ -106,6 +146,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const updateGame1 = useCallback((patch: Partial<Game1Progress>) => {
+<<<<<<< HEAD
     setProgress((prev) => ({ ...prev, game1: { ...prev.game1, ...patch } }));
   }, []);
 
@@ -115,29 +156,94 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
 
   const updateGame3 = useCallback((patch: Partial<Game3Progress>) => {
     setProgress((prev) => ({ ...prev, game3: { ...prev.game3, ...patch } }));
+=======
+    setProgress((prev) => ({
+      ...prev,
+      game1: { ...prev.game1, ...patch },
+    }));
+  }, []);
+
+  const updateGame2 = useCallback((patch: Partial<Game2Progress>) => {
+    setProgress((prev) => ({
+      ...prev,
+      game2: { ...prev.game2, ...patch },
+    }));
+  }, []);
+
+  const updateGame3 = useCallback((patch: Partial<Game3Progress>) => {
+    setProgress((prev) => ({
+      ...prev,
+      game3: { ...prev.game3, ...patch },
+    }));
+>>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
   }, []);
 
   const resetGame = useCallback((game: GameKey) => {
     setProgress((prev) => {
+<<<<<<< HEAD
       if (game === "game1") return { ...prev, game1: structuredClone(defaultProgress.game1) };
       if (game === "game2") return { ...prev, game2: structuredClone(defaultProgress.game2) };
+=======
+      if (game === "game1") {
+        return { ...prev, game1: structuredClone(defaultProgress.game1) };
+      }
+      if (game === "game2") {
+        return { ...prev, game2: structuredClone(defaultProgress.game2) };
+      }
+>>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
       return { ...prev, game3: structuredClone(defaultProgress.game3) };
     });
   }, []);
 
   const resetAll = useCallback(() => {
     clearProgress();
+<<<<<<< HEAD
     sync();
   }, [sync]);
 
   const completionCount = useMemo(
     () => [progress.game1.completed, progress.game2.completed, progress.game3.completed].filter(Boolean).length,
+=======
+    setProgress(structuredClone(defaultProgress));
+  }, []);
+
+  const completionCount = useMemo(
+    () =>
+      [progress.game1.completed, progress.game2.completed, progress.game3.completed].filter(
+        Boolean,
+      ).length,
+>>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
     [progress.game1.completed, progress.game2.completed, progress.game3.completed],
   );
 
   const value = useMemo<ProgressContextValue>(
+<<<<<<< HEAD
     () => ({ progress, isReady, completionCount, sessions, activeSessionId, setUserName, updateGame1, updateGame2, updateGame3, resetGame, resetAll, switchSession, createSession }),
     [progress, isReady, completionCount, sessions, activeSessionId, setUserName, updateGame1, updateGame2, updateGame3, resetGame, resetAll, switchSession, createSession],
+=======
+    () => ({
+      progress,
+      isReady,
+      completionCount,
+      setUserName,
+      updateGame1,
+      updateGame2,
+      updateGame3,
+      resetGame,
+      resetAll,
+    }),
+    [
+      progress,
+      isReady,
+      completionCount,
+      setUserName,
+      updateGame1,
+      updateGame2,
+      updateGame3,
+      resetGame,
+      resetAll,
+    ],
+>>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
   );
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;

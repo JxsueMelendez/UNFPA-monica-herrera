@@ -45,6 +45,7 @@ export interface UserProgress {
   updatedAt?: string;
 }
 
+<<<<<<< HEAD
 export interface Session {
   id: string;
   name: string;
@@ -58,6 +59,8 @@ export interface SessionsStore {
   sessions: Record<string, Session>;
 }
 
+=======
+>>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
 /* -------------------------------------------------------------------------- */
 /*  Juego 1 · ¿Lo compartes o lo cuestionas?                                  */
 /* -------------------------------------------------------------------------- */

@@ -233,9 +233,12 @@ export default function HubPage() {
                   Explorar otros finales
                 </Link>
               )}
+<<<<<<< HEAD
               <Link href="/" className={buttonVariants({ variant: "secondary", size: "lg" })}>
                 Volver al inicio
               </Link>
+=======
+>>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
               <span className="inline-flex items-center gap-2 text-xs font-medium text-ink-faint">
                 <LockKeyhole className="h-3.5 w-3.5" />
                 Guardado en este dispositivo

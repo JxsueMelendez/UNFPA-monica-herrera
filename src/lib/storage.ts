@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 import type { Session, SessionsStore, UserProgress } from "@/lib/types";
 
 export const STORAGE_KEY = "brujula:progress:v1";
 export const SESSIONS_KEY = "brujula:sessions:v2";
+=======
+import type { UserProgress } from "@/lib/types";
+
+export const STORAGE_KEY = "brujula:progress:v1";
+>>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
 
 export const defaultProgress: UserProgress = {
   userName: "",
@@ -99,6 +105,7 @@ export function normalizeProgress(raw: unknown): UserProgress {
   };
 }
 
+<<<<<<< HEAD
 const emptyStore: SessionsStore = { activeId: null, sessions: {} };
 
 function asSession(value: unknown): Session | null {
@@ -156,10 +163,23 @@ export function readProgress(): UserProgress {
   const store = readSessionsStore();
   if (!store.activeId || !store.sessions[store.activeId]) return structuredClone(defaultProgress);
   return normalizeProgress(store.sessions[store.activeId].progress);
+=======
+export function readProgress(): UserProgress {
+  if (typeof window === "undefined") return structuredClone(defaultProgress);
+
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    if (!raw) return structuredClone(defaultProgress);
+    return normalizeProgress(JSON.parse(raw) as unknown);
+  } catch {
+    return structuredClone(defaultProgress);
+  }
+>>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
 }
 
 export function writeProgress(progress: UserProgress) {
   if (typeof window === "undefined") return;
+<<<<<<< HEAD
   const store = readSessionsStore();
   const now = new Date().toISOString();
   let activeId = store.activeId;
@@ -176,10 +196,22 @@ export function writeProgress(progress: UserProgress) {
     progress: normalizeProgress({ ...progress, updatedAt: now }),
   };
   writeSessionsStore(store);
+=======
+
+  try {
+    window.localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({ ...progress, updatedAt: new Date().toISOString() }),
+    );
+  } catch {
+    // Si el navegador bloquea localStorage, la sesión sigue funcionando en memoria.
+  }
+>>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
 }
 
 export function clearProgress() {
   if (typeof window === "undefined") return;
+<<<<<<< HEAD
   const store = readSessionsStore();
   if (store.activeId) {
     delete store.sessions[store.activeId];
@@ -225,6 +257,16 @@ export function createSession(name: string): string {
   return id;
 }
 
+=======
+
+  try {
+    window.localStorage.removeItem(STORAGE_KEY);
+  } catch {
+    // Silencioso por la misma razón que writeProgress.
+  }
+}
+
+>>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
 export function hasProgress(progress: UserProgress) {
   return Boolean(
     progress.userName ||

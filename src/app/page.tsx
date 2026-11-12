@@ -1,6 +1,10 @@
 "use client";
 
+<<<<<<< HEAD
 import { useState, type FormEvent } from "react";
+=======
+import { useEffect, useState, type FormEvent } from "react";
+>>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
@@ -73,12 +77,28 @@ const gamePreviews: GamePreview[] = [
 
 export default function OnboardingPage() {
   const router = useRouter();
+<<<<<<< HEAD
   const { isReady, sessions, switchSession, createSession } = useUserProgress();
   const [name, setName] = useState("");
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   function handleCreate(event: FormEvent<HTMLFormElement>) {
+=======
+  const { progress, isReady, setUserName } = useUserProgress();
+  const [name, setName] = useState("");
+  const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [prefilled, setPrefilled] = useState(false);
+
+  useEffect(() => {
+    if (!isReady || prefilled) return;
+    if (progress.userName) setName(progress.userName);
+    setPrefilled(true);
+  }, [isReady, prefilled, progress.userName]);
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+>>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
     event.preventDefault();
     const cleanName = name.trim();
 
@@ -89,7 +109,11 @@ export default function OnboardingPage() {
 
     setError("");
     setIsSubmitting(true);
+<<<<<<< HEAD
     createSession(cleanName);
+=======
+    setUserName(cleanName);
+>>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
     router.push("/hub");
   }
 
@@ -148,12 +172,21 @@ export default function OnboardingPage() {
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <a href="#empezar" className={buttonVariants({ variant: "coral", size: "lg" })}>
+<<<<<<< HEAD
               {sessions.length > 0 ? "Nueva sesión" : "Quiero empezar"}
               <ArrowRight className="h-4 w-4" />
             </a>
             {sessions.length > 0 ? (
               <Link href="/hub" className={buttonVariants({ variant: "secondary", size: "lg" })}>
                 Ir al hub
+=======
+              Quiero empezar
+              <ArrowRight className="h-4 w-4" />
+            </a>
+            {progress.userName ? (
+              <Link href="/hub" className={buttonVariants({ variant: "secondary", size: "lg" })}>
+                Continuar como {progress.userName}
+>>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
               </Link>
             ) : (
               <span className="text-sm text-ink-faint">
@@ -192,6 +225,7 @@ export default function OnboardingPage() {
               ser un pseudónimo: no necesitas dar tus datos reales.
             </p>
 
+<<<<<<< HEAD
             {sessions.length > 0 ? (
               <div className="mt-5">
                 <p className="text-xs font-bold uppercase tracking-[0.12em] text-ink-faint">Sesiones guardadas</p>
@@ -213,6 +247,23 @@ export default function OnboardingPage() {
             ) : null}
 
             <form onSubmit={handleCreate} className={sessions.length > 0 ? "mt-3" : "mt-6"} noValidate>
+=======
+            {progress.userName ? (
+              <div className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-teal/20 bg-teal-soft/60 px-4 py-3">
+                <p className="text-xs font-semibold text-teal-deep">
+                  Ya hay un recorrido guardado como {progress.userName}.
+                </p>
+                <Link
+                  href="/hub"
+                  className="inline-flex min-h-6 items-center rounded-md text-xs font-bold text-teal-deep underline decoration-teal/30 underline-offset-4 hover:decoration-teal"
+                >
+                  Ir al inicio
+                </Link>
+              </div>
+            ) : null}
+
+            <form onSubmit={handleSubmit} className="mt-6" noValidate>
+>>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
               <label
                 htmlFor="userName"
                 className="text-xs font-bold uppercase tracking-[0.12em] text-ink-faint"
@@ -260,7 +311,15 @@ export default function OnboardingPage() {
                 className="mt-5 w-full"
                 disabled={!isReady || isSubmitting}
               >
+<<<<<<< HEAD
                 {isSubmitting ? "Preparando tu experiencia..." : "Crear sesión y empezar"}
+=======
+                {isSubmitting
+                  ? "Preparando tu experiencia..."
+                  : progress.userName
+                    ? "Guardar y continuar"
+                    : "Empezar mi recorrido"}
+>>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </form>
