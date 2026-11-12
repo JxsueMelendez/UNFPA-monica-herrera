@@ -1,6 +1,5 @@
 "use client";
 
-<<<<<<< HEAD
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -22,26 +21,12 @@ export function AppHeader() {
   const router = useRouter();
   const { progress, completionCount, sessions, activeSessionId, switchSession } = useUserProgress();
   const [open, setOpen] = useState(false);
-=======
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { ArrowLeft, Compass, Info, Sparkles, Trophy } from "lucide-react";
-import { useUserProgress } from "@/lib/use-user-progress";
-import { getInitials } from "@/lib/utils";
-
-export function AppHeader() {
-  const pathname = usePathname();
-  const { progress, completionCount } = useUserProgress();
->>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
 
   const isGame = pathname?.startsWith("/juego") ?? false;
   const isHub = pathname === "/hub";
 
   return (
-<<<<<<< HEAD
     <>
-=======
->>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
     <header className="sticky top-0 z-40 border-b border-line/70 bg-cream/85 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
         <Link
@@ -91,7 +76,6 @@ export function AppHeader() {
           ) : null}
 
           {progress.userName ? (
-<<<<<<< HEAD
             <>
               <button
                 type="button"
@@ -113,20 +97,6 @@ export function AppHeader() {
                 </span>
               </Link>
             </>
-=======
-            <Link
-              href="/hub"
-              className="inline-flex h-10 items-center gap-2 rounded-full border border-line bg-white/80 pl-1 pr-3 shadow-sm transition hover:border-plum/20 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-plum/40"
-              aria-label={`Perfil de ${progress.userName}`}
-            >
-              <span className="grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br from-coral to-gold text-xs font-bold text-white">
-                {getInitials(progress.userName)}
-              </span>
-              <span className="max-w-[8rem] truncate text-sm font-semibold text-ink">
-                {progress.userName}
-              </span>
-            </Link>
->>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
           ) : (
             <Link
               href="/"
@@ -139,7 +109,6 @@ export function AppHeader() {
         </div>
       </div>
     </header>
-<<<<<<< HEAD
 
       <Modal open={open} onClose={() => setOpen(false)} className="max-w-lg" ariaLabel="Cambiar sesión">
         <div className="p-6 sm:p-7">
@@ -195,7 +164,5 @@ export function AppHeader() {
         </div>
       </Modal>
     </>
-=======
->>>>>>> 8cbd02f4e37624f09c844b655385bd36fc4dcf00
   );
 }
