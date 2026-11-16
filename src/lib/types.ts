@@ -73,6 +73,10 @@ export interface Game1Visual {
   gradient: string;
   emoji: string;
   label?: string;
+  /** URL pública de la imagen de la publicación */
+  image?: string;
+  /** Crédito/fuente de la imagen */
+  imageAlt?: string;
 }
 
 export interface Game1Feedback {
@@ -121,6 +125,9 @@ export interface ChatMessage {
   redFlag?: RedFlag;
   /** Explicación amable para los mensajes que no son señal de alerta. */
   neutralNote?: string;
+  /** Ruta a sticker (p.ej. /stickers/...) */
+  sticker?: string;
+  stickerAlt?: string;
 }
 
 export interface Game2Chat {

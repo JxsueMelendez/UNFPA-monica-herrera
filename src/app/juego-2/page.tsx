@@ -16,6 +16,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Modal } from "@/components/ui/modal";
 import { ChatContainer } from "@/components/game2/chat-container";
 import { RedFlagPanel } from "@/components/game2/red-flag-panel";
 import { GamePageHeader } from "@/components/shared/game-page-header";
@@ -24,7 +25,7 @@ import { PageShell } from "@/components/shared/page-shell";
 import { ProgressRing } from "@/components/shared/progress-ring";
 import { UserGate } from "@/components/shared/user-gate";
 import { GAME2_TOTAL_FLAGS, game2Chat } from "@/data/game2-chats";
-import { playSoftClick } from "@/lib/sound";
+import { playAlert, playError, playSoftClick, playSuccess } from "@/lib/sound";
 import { useUserProgress } from "@/lib/use-user-progress";
 import type { ChatMessage, RedFlag } from "@/lib/types";
 
@@ -36,6 +37,8 @@ export default function Game2Page() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [hintOpen, setHintOpen] = useState(false);
   const [finished, setFinished] = useState(false);
+  const [introOpen, setIntroOpen] = useState(true);
+  const [started, setStarted] = useState(false);
 
   useEffect(() => {
     if (!isReady || hydrated) return;
@@ -59,20 +62,27 @@ export default function Game2Page() {
   function handleSelect(message: ChatMessage) {
     setSelectedId(message.id);
 
-    if (message.redFlag && !flaggedIds.includes(message.id)) {
-      const nextIds = [...flaggedIds, message.id];
-      setFlaggedIds(nextIds);
-      updateGame2({
-        flaggedIds: nextIds,
-        flagsIdentified: nextIds.length,
-        score: nextIds.length,
-        completed: false,
-      });
+    if (message.redFlag) {
+      if (!flaggedIds.includes(message.id)) {
+        const nextIds = [...flaggedIds, message.id];
+        setFlaggedIds(nextIds);
+        updateGame2({
+          flaggedIds: nextIds,
+          flagsIdentified: nextIds.length,
+          score: nextIds.length,
+          completed: false,
+        });
+        playAlert();
+      } else {
+        playSoftClick();
+      }
+    } else {
       playSoftClick();
     }
   }
 
   function handleFinish() {
+    const missed = GAME2_TOTAL_FLAGS - identified;
     updateGame2({
       completed: true,
       flagsIdentified: identified,
@@ -81,6 +91,8 @@ export default function Game2Page() {
     });
     setSelectedId(null);
     setFinished(true);
+    if (missed === 0) playSuccess();
+    else playError();
   }
 
   function handleReplay() {
@@ -145,7 +157,7 @@ export default function Game2Page() {
       {finished ? (
         <section className="mx-auto mt-8 max-w-4xl">
           <Card className="overflow-hidden">
-            <div className="relative overflow-hidden bg-teal-deep px-7 py-8 text-white sm:px-10 sm:py-10">
+            <div className="relative overflow-hidden bg-coral-deep px-7 py-8 text-white sm:px-10 sm:py-10">
               <div
                 aria-hidden
                 className="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-gold/20 blur-3xl"
@@ -328,17 +340,28 @@ export default function Game2Page() {
           </Card>
         </section>
       ) : (
-        <div className="mt-8 grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_360px]">
-          <section className="space-y-4">
+        <div className="mt-8 flex flex-col gap-6 lg:grid lg:grid-cols-[minmax(0,1fr)_360px] lg:items-start">
+          <div className="order-1 lg:order-2">
+            <RedFlagPanel
+              selectedMessage={selectedMessage}
+              flagged={Boolean(selectedId && flaggedIds.includes(selectedId))}
+              flaggedCount={identified}
+              hintOpen={hintOpen}
+              onToggleHint={() => setHintOpen((value) => !value)}
+              onClearSelection={() => setSelectedId(null)}
+              onFinish={handleFinish}
+            />
+          </div>
+          <section className="order-2 space-y-4 lg:order-1">
             <div className="flex items-start gap-3 rounded-3xl border border-teal/15 bg-teal-soft/40 p-4">
               <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white/80 text-teal-deep">
                 <Info className="h-4 w-4" />
               </span>
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.12em] text-teal-deep">
+                <p className="text-sm font-extrabold uppercase tracking-[0.08em] text-teal-deep">
                   Contexto
                 </p>
-                <p className="mt-1 text-sm leading-relaxed text-ink-soft">
+                <p className="mt-1 text-sm font-medium leading-relaxed text-ink-soft">
                   {game2Chat.context}
                 </p>
               </div>
@@ -353,25 +376,30 @@ export default function Game2Page() {
 
             <div className="flex items-start gap-2.5 rounded-2xl bg-sand/60 p-4">
               <MessageCircleQuestion className="mt-0.5 h-4 w-4 shrink-0 text-plum" />
-              <p className="text-xs leading-relaxed text-ink-soft">
-                Esta conversación es ficticia. No todas las señales son obvias y
-                no es un examen sobre tu relación. El objetivo es practicar la
-                mirada y conocer alternativas de cuidado.
+              <p className="text-sm font-medium leading-relaxed text-ink-soft">
+                Este chat es ficticio. No todo es obvio y no es un examen: es práctica para cachar señales y saber qué onda.
               </p>
             </div>
           </section>
-
-          <RedFlagPanel
-            selectedMessage={selectedMessage}
-            flagged={Boolean(selectedId && flaggedIds.includes(selectedId))}
-            flaggedCount={identified}
-            hintOpen={hintOpen}
-            onToggleHint={() => setHintOpen((value) => !value)}
-            onClearSelection={() => setSelectedId(null)}
-            onFinish={handleFinish}
-          />
         </div>
       )}
+
+      <Modal open={introOpen} onClose={() => { setIntroOpen(false); setStarted(true); }} className="max-w-lg" ariaLabel="Cómo jugar Entre líneas">
+        <div className="p-6 sm:p-7">
+          <Badge variant="coral">Cómo jugar</Badge>
+          <h2 className="mt-3 font-display text-3xl font-extrabold text-ink">Entre líneas</h2>
+          <div className="mt-4 space-y-3 text-sm font-medium leading-relaxed text-ink-soft">
+            <p><strong className="text-ink">1.</strong> Lee el chat: parece tranqui, pero trae red flags escondidas.</p>
+            <p><strong className="text-ink">2.</strong> Toca los mensajes que te den mala espina (control, chantaje, secretos, presión).</p>
+            <p><strong className="text-ink">3.</strong> Al tocarlos verás por qué son señal y qué puedes hacer. Los mensajes buenos/tiernos también se explican.</p>
+            <p><strong className="text-ink">4.</strong> Cuando sientas que ya viste todo, dale a <strong className="text-ink">Terminar revisión</strong>.</p>
+          </div>
+          <Button variant="coral" size="lg" className="mt-6 w-full" onClick={() => { setIntroOpen(false); setStarted(true); playSoftClick(); }}>
+            Empezar
+            <ArrowRight className="h-4 w-4" />
+          </Button>
+        </div>
+      </Modal>
     </PageShell>
   );
 }

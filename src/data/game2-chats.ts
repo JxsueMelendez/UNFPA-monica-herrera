@@ -1,10 +1,5 @@
 import type { Game2Chat } from "@/lib/types";
 
-/**
- * Conversación ficticia. Las banderas rojas están distribuidas en 7 mensajes;
- * el resto son mensajes neutros con una nota educativa para evitar que el juego
- * enseñe a desconfiar de cualquier gesto de cuidado.
- */
 export const game2Chat: Game2Chat = {
   id: "alex-instagram",
   title: "Chat con Álex",
@@ -13,95 +8,103 @@ export const game2Chat: Game2Chat = {
   adultName: "Álex",
   adultAge: 24,
   context:
-    "Instagram DM · Álex es asistente del taller de ilustración al que Sofi asiste desde hace tres meses.",
+    "Instagram DM · Álex es asistente del taller de dibujo al que Sofi va desde hace unos meses.",
   messages: [
     {
       id: "m01",
       from: "adult",
-      text: "Hola Sofi, ¿ya llegaste a casa? Me preocupé cuando no me respondiste. 😊",
+      text: "Hey Sofi, ¿ya llegaste a tu casa? Me quedé pensando cuando no me contestaste. 😊",
       time: "21:08",
       neutralNote:
-        "Preocuparse por tu llegada puede ser un gesto de cuidado. La señal aparece cuando ese cuidado se convierte en la obligación de reportar cada movimiento.",
+        "Preguntar si llegaste bien puede ser algo tranqui. Se pone raro cuando se vuelve obligación de avisar siempre todo.",
     },
     {
       id: "m02",
       from: "teen",
-      text: "Sí, perdón, estaba cenando con mi familia.",
+      text: "Sí, perdón, andaba cenando con mi familia.",
       time: "21:10",
+      sticker: "/stickers/Love you!.jpg",
+      stickerAlt: "Sticker Love you",
     },
     {
       id: "m03",
       from: "adult",
-      text: "Ah, ok. Es que me gusta saber dónde estás. ¿Por qué no me avisaste antes?",
+      text: "Ah va. Es que me gusta saber dónde andas. ¿Por qué no me avisaste antes?",
       time: "21:11",
       redFlag: {
         category: "Control sutil",
         severity: "media",
         explanation:
-          "Pedir que avises cada movimiento puede parecer cuidado, pero instala la idea de que le debes un reporte. En una relación entre iguales, avisar es una elección, no una obligación.",
+          "Pedir que le avises cada movimiento suena a cuidado, pero te pone en modo ‘tengo que reportarme’. Avisar debe ser tu decisión, no tu obligación.",
         advice:
-          "Pregúntate: ¿esto es cuidado o una forma de vigilarme? Puedes decir: “Te cuento cuando quiera hacerlo; no tengo que reportarte todo”.",
+          "Piensa: ¿me cuida o me vigila? Puedes decir: ‘Te cuento si quiero, no tengo que avisarte de todo’.",
       },
     },
     {
       id: "m04",
       from: "teen",
-      text: "No pensé que fuera necesario avisarte.",
+      text: "La neta no pensé que tuviera que avisarte.",
       time: "21:12",
+      sticker: "/stickers/The social meh!.jpg",
+      stickerAlt: "Sticker meh",
     },
     {
       id: "m05",
       from: "adult",
-      text: "Es que eres muy distraída. Menos mal me tienes a mí para cuidarte.",
+      text: "Es que eres bien distraída jaja. Menos mal me tienes pa’ cuidarte.",
       time: "21:13",
       redFlag: {
         category: "Infantilización",
         severity: "media",
         explanation:
-          "Te presenta como alguien incapaz de cuidarse y se coloca en un lugar de superioridad. Con el tiempo puede hacerte dudar de tus propias decisiones.",
+          "Te trata como si no pudieras sola y se pone arriba de ti. Con el tiempo eso te hace dudar de tus propias decisiones.",
         advice:
-          "Reconocer tus capacidades es parte de tu autonomía. No necesitas que alguien te “administre” ni te diga lo que puedes o no puedes hacer.",
+          "Tú puedes cuidarte y decidir. Nadie tiene que ‘manejarte’ ni decirte qué puedes hacer.",
       },
     },
     {
       id: "m06",
       from: "adult",
-      text: "¿Con quién estabas? Vi que subiste una foto con un chico.",
+      text: "¿Con quién estabas? Vi que subiste una story con un vato.",
       time: "21:20",
       redFlag: {
         category: "Vigilancia de redes",
         severity: "media",
         explanation:
-          "Monitorear tus publicaciones para cuestionar tus amistades es una forma de control digital. Tu vida social no tiene que ser aprobada por tu pareja.",
+          "Andar checando tus stories para reclamarte por tus amistades es control digital. Tus redes y tu gente no necesitan su aprobación.",
         advice:
-          "Puedes limitar el acceso a tu información y hablar con un adulto de confianza si sientes que te vigila. Revisar tus redes no es una prueba de amor.",
+          "Puedes poner límites con lo que ve o compartes. Que revise tus redes no es prueba de amor.",
       },
     },
     {
       id: "m07",
       from: "teen",
-      text: "Es mi compañero de clase, solo estudiamos.",
+      text: "Es mi compa de clase, solo estábamos estudiando.",
       time: "21:22",
     },
     {
       id: "m08",
       from: "adult",
-      text: "No me gusta. Ese tipo te mira raro. Mejor bloquealo, ¿sí? Por mí.",
+      text: "No me late. Ese tipo te ve raro. Mejor bloquéalo, ¿va? Hazlo por mí.",
       time: "21:23",
+      sticker: "/stickers/Hombre mano sostenga letrero marca de verificación y X roja _ Vector Premium.jpg",
+      stickerAlt: "Sticker X roja",
       redFlag: {
         category: "Aislamiento",
         severity: "alta",
         explanation:
-          "Te pide cortar un vínculo usando su incomodidad como argumento. Aislarte de amigos y compañeros es una señal de alerta clásica: reduce tu red de apoyo.",
+          "Te pide cortar a alguien usando su incomodidad como excusa. Alejarte de tus compas es una señal fuerte: te deja con menos gente que te apoye.",
         advice:
-          "Una pareja puede expresar incomodidad, pero no decidir con quién hablas. Un límite claro: “Mis amistades las elijo yo”.",
+          "Puede decir que le incomoda, pero no decidir por ti. Límite claro: ‘Mis amistades las elijo yo’.",
       },
     },
     {
       id: "m09",
       from: "teen",
-      text: "No sé, es mi amigo...",
+      text: "No sé… es mi amigo.",
       time: "21:25",
+      sticker: "/stickers/ignorando.jpg",
+      stickerAlt: "Sticker dudando",
     },
     {
       id: "m10",
@@ -112,49 +115,53 @@ export const game2Chat: Game2Chat = {
         category: "Chantaje emocional",
         severity: "alta",
         explanation:
-          "Condiciona el afecto a que obedezcas: “si me quisieras, harías esto”. Es una forma de presión que te hace responsable de sus emociones y te aísla.",
+          "Te condiciona: ‘si me quisieras, harías esto’. Te hace sentir culpable y responsable de sus emociones para que obedezcas.",
         advice:
-          "El amor no se demuestra obedeciendo. Puedes responder: “No voy a tomar decisiones por miedo a perderte”.",
+          "Querer a alguien no es obedecer. Puedes decir: ‘No voy a decidir por miedo a perderte’.",
       },
     },
     {
       id: "m11",
       from: "teen",
-      text: "Ok... lo pensaré.",
+      text: "Ok… lo voy a pensar.",
       time: "21:30",
     },
     {
       id: "m12",
       from: "adult",
-      text: "Gracias. Eres especial, nunca había conocido a alguien tan madura para tu edad. No le cuentes a tus papás, no entenderían.",
+      text: "Gracias. Eres especial, nunca había conocido a alguien tan madura para su edad. No le digas a tus papás, no van a entender.",
       time: "21:32",
       redFlag: {
         category: "Secreto y grooming",
         severity: "alta",
         explanation:
-          "El halago sobre tu madurez y la petición de guardar silencio son señales de grooming. Una relación que necesita ocultarse de los adultos de confianza no es segura.",
+          "El ‘eres muy madura’ y pedirte que lo ocultes son señales fuertes. Si algo tiene que esconderse de adultos de confianza, ahí hay riesgo.",
         advice:
-          "Cuéntaselo a una persona adulta de confianza. El secreto no te protege: protege a quien quiere controlarte.",
+          "Cuéntale a una persona adulta de confianza. El secreto lo protege a él, no a ti.",
       },
     },
     {
       id: "m13",
       from: "teen",
-      text: "¿Por qué no entenderían?",
+      text: "¿Por qué no lo entenderían?",
       time: "21:34",
+      sticker: "/stickers/kdijiste🥸🤙.jpg",
+      stickerAlt: "Sticker confundida",
     },
     {
       id: "m14",
       from: "adult",
-      text: "Porque ellos no saben lo que tenemos. Confía en mí. Si me quieres, mándame una foto tuya ahora. Solo para mí. 😉",
+      text: "Porque no saben lo que tenemos. Confía en mí. Si me quieres, mándame una foto tuya ahorita. Solo para mí. 😉",
       time: "21:35",
+      sticker: "/stickers/Vivir del engaño.jpg",
+      stickerAlt: "Sticker engaño",
       redFlag: {
         category: "Presión sexual",
         severity: "alta",
         explanation:
-          "Pedir imágenes íntimas y usar el “si me quieres” es coerción sexual. Nadie tiene derecho a presionarte para enviar fotos. Además, compartir imágenes de una persona menor de edad es un delito.",
+          "Pedirte fotos y usar ‘si me quieres’ es presión. Nadie tiene derecho a exigirte fotos. Si eres menor, compartir imágenes así también es un delito.",
         advice:
-          "No envíes nada. Guarda las capturas, bloquea y busca ayuda de un adulto de confianza o de una institución de protección. No es tu culpa.",
+          "No mandes nada. Guarda capturas, bloquea y busca ayuda de un adulto o institución de confianza. No es tu culpa.",
       },
     },
   ],

@@ -16,6 +16,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Modal } from "@/components/ui/modal";
 import { FeedbackOverlay } from "@/components/game1/feedback-overlay";
 import { SwipeCard } from "@/components/game1/swipe-card";
 import { GamePageHeader } from "@/components/shared/game-page-header";
@@ -24,6 +25,7 @@ import { PageShell } from "@/components/shared/page-shell";
 import { ProgressRing } from "@/components/shared/progress-ring";
 import { UserGate } from "@/components/shared/user-gate";
 import { GAME1_TOTAL, game1Cards } from "@/data/game1-cards";
+import { playError, playSoftClick, playSuccess } from "@/lib/sound";
 import { useUserProgress } from "@/lib/use-user-progress";
 import type { Game1Card, SwipeChoice } from "@/lib/types";
 
@@ -41,6 +43,8 @@ export default function Game1Page() {
   const [score, setScore] = useState(0);
   const [feedback, setFeedback] = useState<FeedbackState | null>(null);
   const [exiting, setExiting] = useState<SwipeChoice | null>(null);
+  const [introOpen, setIntroOpen] = useState(true);
+  const [started, setStarted] = useState(false);
   const timeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
@@ -88,6 +92,8 @@ export default function Game1Page() {
           score: nextScore,
           completed: nextAnswered.length >= GAME1_TOTAL,
         });
+        if (correct) playSuccess();
+        else playError();
         setFeedback({ card: currentCard, choice, correct });
         setExiting(null);
       }, 250);
@@ -440,6 +446,23 @@ export default function Game1Page() {
         isLast={answeredIds.length >= GAME1_TOTAL}
         onClose={() => setFeedback(null)}
       />
+
+      <Modal open={introOpen} onClose={() => { setIntroOpen(false); setStarted(true); }} className="max-w-lg" ariaLabel="Cómo jugar ¿Lo compartes o lo cuestionas?">
+        <div className="p-6 sm:p-7">
+          <Badge variant="coral">Cómo jugar</Badge>
+          <h2 className="mt-3 font-display text-3xl font-extrabold text-ink">¿Lo compartes o lo cuestionas?</h2>
+          <div className="mt-4 space-y-3 text-sm font-medium leading-relaxed text-ink-soft">
+            <p><strong className="text-ink">1.</strong> Te van a salir publicaciones como las que ves en redes.</p>
+            <p><strong className="text-ink">2.</strong> Desliza o toca <strong className="text-teal-deep">Compartir</strong> si el mensaje está sano y respeta.</p>
+            <p><strong className="text-ink">3.</strong> Elige <strong className="text-coral-deep">Cuestionar</strong> si ves celos, control, secretos o mala vibra.</p>
+            <p><strong className="text-ink">4.</strong> Después de cada tarjeta te contamos por qué, sin juzgar a nadie.</p>
+          </div>
+          <Button variant="coral" size="lg" className="mt-6 w-full" onClick={() => { setIntroOpen(false); setStarted(true); playSoftClick(); }}>
+            Dale, empecemos
+            <ArrowRight className="h-4 w-4" />
+          </Button>
+        </div>
+      </Modal>
     </PageShell>
   );
 }

@@ -49,40 +49,44 @@ export function MessageBubble({
 
       <div
         className={cn(
-          "relative max-w-[84%] rounded-2xl px-3.5 py-2.5 text-sm shadow-sm ring-offset-2 ring-offset-[#F0EEF6] transition duration-200 sm:max-w-[76%]",
+          "relative max-w-[84%] rounded-2xl px-3.5 py-2.5 text-[0.95rem] shadow-sm ring-offset-2 ring-offset-[#F0EEF6] transition duration-200 sm:max-w-[76%]",
           isTeen
             ? "rounded-br-md bg-plum text-cream"
             : "rounded-bl-md border border-line/70 bg-white text-ink",
           flagged &&
-            !isTeen &&
-            "bg-gold-soft text-ink ring-2 ring-gold",
-          flagged &&
-            isTeen &&
-            "ring-2 ring-gold",
+            "bg-coral-soft/90 text-ink ring-2 ring-coral",
           selected && !flagged && "ring-2 ring-plum/40",
           !selected && "hover:-translate-y-0.5 hover:shadow-md",
           "focus-visible:ring-2 focus-visible:ring-plum",
         )}
       >
         {flagged ? (
-          <span className="absolute -right-1.5 -top-1.5 grid h-5 w-5 place-items-center rounded-full bg-gold text-plum-deep shadow-sm">
+          <span className="absolute -right-1.5 -top-1.5 grid h-5 w-5 place-items-center rounded-full bg-coral text-white shadow-sm">
             <Flag className="h-3 w-3 fill-current" />
           </span>
         ) : null}
 
-        <p className="whitespace-pre-wrap text-pretty leading-relaxed">
+        {message.sticker ? (
+          <img
+            src={message.sticker}
+            alt={message.stickerAlt ?? "Sticker"}
+            className="mb-1.5 h-24 w-24 rounded-xl object-cover"
+            loading="lazy"
+          />
+        ) : null}
+        <p className="whitespace-pre-wrap text-pretty font-medium leading-relaxed">
           {message.text}
         </p>
         <div
           className={cn(
-            "mt-1 flex items-center justify-end gap-1.5 text-[0.58rem] font-medium",
-            isTeen ? "text-cream/55" : "text-ink-faint",
+            "mt-1 flex items-center justify-end gap-1.5 text-[0.62rem] font-semibold",
+            isTeen ? "text-cream/60" : "text-ink-faint",
           )}
         >
           <span>{message.time}</span>
           {flagged ? (
-            <span className="font-bold uppercase tracking-[0.1em] text-gold-deep">
-              Señalada
+            <span className="font-extrabold uppercase tracking-[0.08em] text-coral-deep">
+              Red flag
             </span>
           ) : null}
         </div>

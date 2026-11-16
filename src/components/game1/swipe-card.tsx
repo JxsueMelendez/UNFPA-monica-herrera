@@ -124,26 +124,40 @@ export function SwipeCard({
             card.visual.gradient,
           )}
         >
-          <div aria-hidden className="absolute inset-0 bg-dots-warm bg-[size:18px_18px] opacity-40" />
-          <div
-            aria-hidden
-            className="absolute -right-8 -top-10 h-32 w-32 rounded-full border border-white/50 bg-white/20 blur-sm"
-          />
-          <div
-            aria-hidden
-            className="absolute -bottom-10 -left-8 h-36 w-36 rounded-full border border-white/40 bg-white/15 blur-sm"
-          />
-          <span className="relative text-7xl drop-shadow-sm sm:text-8xl" aria-hidden>
-            {card.visual.emoji}
-          </span>
-          {card.visual.label ? (
-            <span className="relative mt-4 rounded-full border border-white/60 bg-white/60 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-ink-soft backdrop-blur-sm">
-              {card.visual.label}
-            </span>
-          ) : null}
-          <span className="absolute bottom-3 right-4 font-display text-4xl leading-none text-ink/10">
-            ”
-          </span>
+          {card.visual.image ? (
+            <>
+              <img
+                src={card.visual.image}
+                alt={card.visual.imageAlt ?? card.caption}
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+              {card.visual.label ? (
+                <span className="absolute left-3 top-3 rounded-full border border-white/50 bg-black/30 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-white backdrop-blur-sm">
+                  {card.visual.label}
+                </span>
+              ) : null}
+            </>
+          ) : (
+            <>
+              <div aria-hidden className="absolute inset-0 bg-dots-warm bg-[size:18px_18px] opacity-40" />
+              <div aria-hidden className="absolute -right-8 -top-10 h-32 w-32 rounded-full border border-white/50 bg-white/20 blur-sm" />
+              <div aria-hidden className="absolute -bottom-10 -left-8 h-36 w-36 rounded-full border border-white/40 bg-white/15 blur-sm" />
+              <span className="relative text-7xl drop-shadow-sm sm:text-8xl" aria-hidden>
+                {card.visual.emoji}
+              </span>
+              {card.visual.label ? (
+                <span className="relative mt-4 rounded-full border border-white/60 bg-white/60 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-ink-soft backdrop-blur-sm">
+                  {card.visual.label}
+                </span>
+              ) : null}
+              <span className="absolute bottom-3 right-4 font-display text-4xl leading-none text-ink/10">
+                ”
+              </span>
+            </>
+          )}
         </div>
       </div>
 

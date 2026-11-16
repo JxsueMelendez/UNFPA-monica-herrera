@@ -32,10 +32,10 @@ export function ChoiceButton({
         disabled && "pointer-events-none opacity-55",
       )}
     >
-      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-sand text-xs font-extrabold text-plum">
+      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-sand text-sm font-extrabold text-plum">
         {String.fromCharCode(65 + index)}
       </span>
-      <span className="flex-1 text-pretty text-sm font-medium leading-relaxed text-ink">
+      <span className="flex-1 text-pretty text-sm font-semibold leading-relaxed text-ink sm:text-base">
         {choice.label}
       </span>
       <ArrowRight className="h-4 w-4 shrink-0 text-ink-faint transition group-hover:translate-x-0.5 group-hover:text-plum" />
