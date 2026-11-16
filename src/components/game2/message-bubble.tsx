@@ -72,6 +72,7 @@ export function MessageBubble({
             alt={message.stickerAlt ?? "Sticker"}
             className="mb-1.5 h-24 w-24 rounded-xl object-cover"
             loading="lazy"
+            onError={(e) => { e.currentTarget.style.display = "none"; }}
           />
         ) : null}
         <p className="whitespace-pre-wrap text-pretty font-medium leading-relaxed">

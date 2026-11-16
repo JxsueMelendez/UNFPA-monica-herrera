@@ -45,8 +45,8 @@ export const game2Chat: Game2Chat = {
       from: "teen",
       text: "La neta no pensé que tuviera que avisarte.",
       time: "21:12",
-      sticker: "/stickers/The social meh!.jpg",
-      stickerAlt: "Sticker meh",
+      sticker: "/stickers/minion papoi.jpg",
+      stickerAlt: "Sticker reacción",
     },
     {
       id: "m05",
@@ -87,8 +87,8 @@ export const game2Chat: Game2Chat = {
       from: "adult",
       text: "No me late. Ese tipo te ve raro. Mejor bloquéalo, ¿va? Hazlo por mí.",
       time: "21:23",
-      sticker: "/stickers/Hombre mano sostenga letrero marca de verificación y X roja _ Vector Premium.jpg",
-      stickerAlt: "Sticker X roja",
+      sticker: "/stickers/sticker-vibzz.jpg",
+      stickerAlt: "Sticker",
       redFlag: {
         category: "Aislamiento",
         severity: "alta",
@@ -145,7 +145,7 @@ export const game2Chat: Game2Chat = {
       from: "teen",
       text: "¿Por qué no lo entenderían?",
       time: "21:34",
-      sticker: "/stickers/kdijiste🥸🤙.jpg",
+      sticker: "/stickers/sticker-kdijiste.jpg",
       stickerAlt: "Sticker confundida",
     },
     {
@@ -153,8 +153,8 @@ export const game2Chat: Game2Chat = {
       from: "adult",
       text: "Porque no saben lo que tenemos. Confía en mí. Si me quieres, mándame una foto tuya ahorita. Solo para mí. 😉",
       time: "21:35",
-      sticker: "/stickers/Vivir del engaño.jpg",
-      stickerAlt: "Sticker engaño",
+      sticker: "/stickers/sticker-pinned.jpg",
+      stickerAlt: "Sticker",
       redFlag: {
         category: "Presión sexual",
         severity: "alta",

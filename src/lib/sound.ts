@@ -33,6 +33,30 @@ function closeLater(context: AudioContext, ms = 800) {
   }, ms);
 }
 
+function tone(
+  ctx: AudioContext,
+  freq: number,
+  start: number,
+  dur: number,
+  type: OscillatorType,
+  gainVal: number,
+  opts?: { toFreq?: number; attack?: number },
+) {
+  const o = ctx.createOscillator();
+  const g = ctx.createGain();
+  o.type = type;
+  o.frequency.setValueAtTime(freq, start);
+  if (opts?.toFreq) o.frequency.exponentialRampToValueAtTime(opts.toFreq, start + dur);
+  const atk = opts?.attack ?? 0.015;
+  g.gain.setValueAtTime(0.0001, start);
+  g.gain.exponentialRampToValueAtTime(gainVal, start + atk);
+  g.gain.exponentialRampToValueAtTime(0.0001, start + dur);
+  o.connect(g);
+  g.connect(ctx.destination);
+  o.start(start);
+  o.stop(start + dur + 0.02);
+}
+
 export type FlashKind = "success" | "error" | "alert";
 
 export function flashScreen(kind: FlashKind) {
@@ -49,137 +73,63 @@ export function flashScreen(kind: FlashKind) {
 
 export function playSuccess() {
   if (prefersReducedMotion()) return;
-  const context = createContext();
-  if (!context) return;
-  const now = context.currentTime;
-  const master = context.createGain();
-  master.gain.value = 0.07;
-  master.connect(context.destination);
-  [523.25, 659.25, 783.99].forEach((f, i) => {
-    const o = context.createOscillator();
-    const g = context.createGain();
-    const t = now + i * 0.08;
-    o.type = "sine";
-    o.frequency.value = f;
-    g.gain.setValueAtTime(0.0001, t);
-    g.gain.exponentialRampToValueAtTime(0.8, t + 0.03);
-    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.22);
-    o.connect(g);
-    g.connect(master);
-    o.start(t);
-    o.stop(t + 0.25);
+  const ctx = createContext();
+  if (!ctx) return;
+  const now = ctx.currentTime;
+  // bright ascending chime (C5-E5-G5-C6)
+  [523.25, 659.25, 783.99, 1046.5].forEach((f, i) => {
+    tone(ctx, f, now + i * 0.07, 0.28, "sine", 0.14, { attack: 0.01 });
+    tone(ctx, f * 2, now + i * 0.07, 0.18, "triangle", 0.03, { attack: 0.01 }); // shimmer
   });
-  closeLater(context, 700);
+  closeLater(ctx, 900);
   flashScreen("success");
 }
 
 export function playError() {
   if (prefersReducedMotion()) return;
-  const context = createContext();
-  if (!context) return;
-  const now = context.currentTime;
-  const o = context.createOscillator();
-  const g = context.createGain();
-  o.type = "sawtooth";
-  o.frequency.setValueAtTime(220, now);
-  o.frequency.exponentialRampToValueAtTime(120, now + 0.25);
-  g.gain.setValueAtTime(0.0001, now);
-  g.gain.exponentialRampToValueAtTime(0.12, now + 0.02);
-  g.gain.exponentialRampToValueAtTime(0.0001, now + 0.3);
-  o.connect(g);
-  g.connect(context.destination);
-  o.start(now);
-  o.stop(now + 0.32);
-  closeLater(context, 600);
+  const ctx = createContext();
+  if (!ctx) return;
+  const now = ctx.currentTime;
+  // low "buzz" drop, two thuds
+  tone(ctx, 220, now, 0.22, "sawtooth", 0.16, { toFreq: 110, attack: 0.008 });
+  tone(ctx, 180, now + 0.18, 0.22, "square", 0.12, { toFreq: 90, attack: 0.008 });
+  tone(ctx, 90, now, 0.35, "sine", 0.18, { toFreq: 60, attack: 0.01 }); // thump
+  closeLater(ctx, 700);
   flashScreen("error");
 }
 
 export function playAlert() {
   if (prefersReducedMotion()) return;
-  const context = createContext();
-  if (!context) return;
-  const now = context.currentTime;
-  const master = context.createGain();
-  master.gain.value = 0.08;
-  master.connect(context.destination);
-  [880, 660].forEach((f, i) => {
-    const o = context.createOscillator();
-    const g = context.createGain();
-    const t = now + i * 0.16;
-    o.type = "triangle";
-    o.frequency.value = f;
-    g.gain.setValueAtTime(0.0001, t);
-    g.gain.exponentialRampToValueAtTime(0.9, t + 0.02);
-    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.18);
-    o.connect(g);
-    g.connect(master);
-    o.start(t);
-    o.stop(t + 0.2);
+  const ctx = createContext();
+  if (!ctx) return;
+  const now = ctx.currentTime;
+  // attention beeps (ping-ping)
+  [988, 784, 988].forEach((f, i) => {
+    tone(ctx, f, now + i * 0.13, 0.16, "square", 0.1, { attack: 0.006 });
+    tone(ctx, f, now + i * 0.13, 0.16, "sine", 0.08, { attack: 0.006 });
   });
-  closeLater(context, 700);
+  closeLater(ctx, 800);
   flashScreen("alert");
 }
 
-/** Acorde ascendente muy suave para los momentos de consecuencia. */
-export function playConsequenceChime() {
-  if (prefersReducedMotion()) return;
-
-  const context = createContext();
-  if (!context) return;
-
-  const frequencies = [523.25, 659.25, 783.99];
-  const master = context.createGain();
-  master.gain.value = 0.055;
-  master.connect(context.destination);
-
-  frequencies.forEach((frequency, index) => {
-    const oscillator = context.createOscillator();
-    const gain = context.createGain();
-    const start = context.currentTime + index * 0.11;
-
-    oscillator.type = "sine";
-    oscillator.frequency.value = frequency;
-
-    gain.gain.setValueAtTime(0.0001, start);
-    gain.gain.exponentialRampToValueAtTime(0.7, start + 0.04);
-    gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.9);
-
-    oscillator.connect(gain);
-    gain.connect(master);
-    oscillator.start(start);
-    oscillator.stop(start + 0.95);
-  });
-
-  window.setTimeout(() => {
-    void context.close().catch(() => undefined);
-  }, 1400);
-}
-
-/** Pequeño clic tonal para confirmaciones. */
+/** Clic suave para confirmaciones/abrir. */
 export function playSoftClick() {
   if (prefersReducedMotion()) return;
+  const ctx = createContext();
+  if (!ctx) return;
+  const now = ctx.currentTime;
+  tone(ctx, 700, now, 0.07, "sine", 0.08, { toFreq: 520, attack: 0.005 });
+  closeLater(ctx, 300);
+}
 
-  const context = createContext();
-  if (!context) return;
-
-  const oscillator = context.createOscillator();
-  const gain = context.createGain();
-  const start = context.currentTime;
-
-  oscillator.type = "triangle";
-  oscillator.frequency.setValueAtTime(620, start);
-  oscillator.frequency.exponentialRampToValueAtTime(440, start + 0.09);
-
-  gain.gain.setValueAtTime(0.0001, start);
-  gain.gain.exponentialRampToValueAtTime(0.12, start + 0.012);
-  gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.16);
-
-  oscillator.connect(gain);
-  gain.connect(context.destination);
-  oscillator.start(start);
-  oscillator.stop(start + 0.18);
-
-  window.setTimeout(() => {
-    void context.close().catch(() => undefined);
-  }, 400);
+/** Acorde ascendente suave para momentos de consecuencia. */
+export function playConsequenceChime() {
+  if (prefersReducedMotion()) return;
+  const ctx = createContext();
+  if (!ctx) return;
+  const now = ctx.currentTime;
+  [523.25, 659.25, 783.99].forEach((f, i) => {
+    tone(ctx, f, now + i * 0.1, 0.5, "sine", 0.07, { attack: 0.02 });
+  });
+  closeLater(ctx, 1200);
 }
