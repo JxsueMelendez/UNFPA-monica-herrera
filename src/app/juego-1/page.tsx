@@ -312,25 +312,29 @@ export default function Game1Page() {
               </span>
             </div>
 
-            <div className="relative mx-auto max-w-lg pb-2 pt-3">
+            <div className="relative mx-auto grid max-w-lg pb-8 pt-1 sm:pb-9">
               <div
                 aria-hidden
-                className="absolute inset-x-5 top-7 h-full rounded-[2rem] border border-line/70 bg-white/50 shadow-sm"
+                className="pointer-events-none col-start-1 row-start-1 translate-y-[6px] rounded-[2rem] border border-white/80 bg-gradient-to-b from-white/55 to-white/30 shadow-[0_10px_28px_-14px_rgba(67,54,110,0.22)] ring-1 ring-inset ring-white/50"
+                style={{ backdropFilter: "blur(18px) saturate(160%)", WebkitBackdropFilter: "blur(18px) saturate(160%)" }}
               />
               <div
                 aria-hidden
-                className="absolute inset-x-9 top-10 h-full rounded-[2rem] border border-line/50 bg-white/35"
+                className="pointer-events-none col-start-1 row-start-1 translate-y-[12px] rounded-[2rem] border border-white/65 bg-gradient-to-b from-white/45 to-white/20 shadow-[0_8px_22px_-14px_rgba(67,54,110,0.18)] ring-1 ring-inset ring-white/35"
+                style={{ backdropFilter: "blur(14px) saturate(150%)", WebkitBackdropFilter: "blur(14px) saturate(150%)" }}
               />
               {currentCard ? (
-                <SwipeCard
-                  key={currentCard.id}
-                  card={currentCard}
-                  onSwipe={handleDecision}
-                  disabled={Boolean(feedback || exiting)}
-                  exiting={exiting}
-                />
+                <div className="relative z-10 col-start-1 row-start-1">
+                  <SwipeCard
+                    key={currentCard.id}
+                    card={currentCard}
+                    onSwipe={handleDecision}
+                    disabled={Boolean(feedback || exiting)}
+                    exiting={exiting}
+                  />
+                </div>
               ) : (
-                <Card className="grid min-h-80 place-items-center p-8 text-center">
+                <Card className="relative z-10 col-start-1 row-start-1 grid min-h-80 place-items-center p-8 text-center">
                   <div>
                     <Sparkles className="mx-auto h-8 w-8 text-gold" />
                     <p className="mt-3 font-display text-xl font-semibold text-ink">
@@ -344,7 +348,7 @@ export default function Game1Page() {
               )}
             </div>
 
-            <div className="mx-auto mt-5 grid max-w-lg grid-cols-2 gap-3">
+            <div className="mx-auto mt-5 grid max-w-lg grid-cols-2 gap-3 sm:mt-6">
               <Button
                 variant="coral"
                 size="lg"
