@@ -113,7 +113,7 @@ export function AppHeader() {
       <Modal open={open} onClose={() => setOpen(false)} className="max-w-lg" ariaLabel="Cambiar sesión">
         <div className="p-6 sm:p-7">
           <h2 className="font-display text-2xl font-semibold text-ink">Sesiones guardadas</h2>
-          <p className="mt-1 text-sm text-ink-soft">Elige una sesión para continuar o crea una nueva.</p>
+          <p className="mt-1 text-sm text-ink-soft">Elegí una sesión para continuar o creá una nueva.</p>
           <div className="mt-5 max-h-[60vh] space-y-3 overflow-y-auto pr-1">
             {sessions.length === 0 ? (
               <p className="text-sm text-ink-faint">No hay sesiones guardadas.</p>

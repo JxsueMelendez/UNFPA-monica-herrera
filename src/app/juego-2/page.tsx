@@ -125,7 +125,7 @@ export default function Game2Page() {
         icon={MessagesSquare}
         eyebrow="Juego 02 · Chat"
         title="Entre líneas"
-        description="Esta conversación parece normal, pero esconde señales de control, manipulación y presión. Toca los mensajes que te hagan ruido y descubre qué hay detrás de cada frase."
+        description="Esta conversación parece normal, pero esconde señales de control, manipulación y presión. Tocá los mensajes que te hagan ruido y descubrí qué hay detrás de cada frase."
         tone="teal"
       >
         <div className="flex items-center gap-4 rounded-3xl border border-line bg-white/80 p-4 shadow-sm">
@@ -176,14 +176,14 @@ export default function Game2Page() {
                   </div>
                   <h2 className="mt-4 max-w-xl font-display text-3xl font-semibold leading-tight sm:text-4xl">
                     {identified === GAME2_TOTAL_FLAGS
-                      ? "Viste todas las señales."
+                      ? "Cachaste todas las señales."
                       : identified >= 4
-                        ? "Ya reconoces varias señales."
+                        ? "Ya reconocés varias señales."
                         : "Empezaste a leer entre líneas."}
                   </h2>
                   <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/75">
                     {identified === GAME2_TOTAL_FLAGS
-                      ? "Identificaste las siete banderas rojas. Eso no significa desconfiar de todo: significa que sabes distinguir el cuidado del control."
+                      ? "Identificaste las siete banderas rojas. Eso no significa desconfiar de todo: significa que sabés distinguir el cuidado del control."
                       : "Las señales de manipulación suelen estar mezcladas con afecto y palabras amables. Lo importante no es acertar todas, sino aprender a nombrarlas y saber qué hacer."}
                   </p>
                 </div>
@@ -245,7 +245,7 @@ export default function Game2Page() {
                   </div>
                   <p className="mt-1 text-sm leading-relaxed text-ink-soft">
                     No es una lista para sentirte mal, sino para reconocerlas la
-                    próxima vez. Léelas con calma.
+                    próxima vez. Leelas con calma.
                   </p>
 
                   <div className="mt-4 space-y-3">
@@ -273,7 +273,7 @@ export default function Game2Page() {
                           </p>
                           <p className="mt-2 rounded-xl border border-coral/15 bg-coral-soft/40 px-3 py-2 text-xs leading-relaxed text-ink-soft">
                             <strong className="font-semibold text-coral-deep">
-                              Qué hacer:
+                              Qué podés hacer:
                             </strong>{" "}
                             {redFlag.advice}
                           </p>
@@ -305,7 +305,7 @@ export default function Game2Page() {
                 <p className="text-sm leading-relaxed text-ink-soft">
                   <strong className="font-semibold text-ink">Para pensar:</strong>{" "}
                   ¿cuál de estas frases te costó más identificar? ¿Qué harías si
-                  alguien te hablara así? ¿A quién podrías acudir?
+                  alguien te hablara así? ¿Con quién podrías hablar?
                 </p>
               </div>
 
@@ -395,9 +395,9 @@ export default function Game2Page() {
           </div>
           <div className="space-y-3 p-6 sm:p-7">
             {[
-              { n: "1", text: "Lee el chat: parece tranqui, pero trae red flags escondidas." },
-              { n: "2", text: "Toca los mensajes que te den mala espina (control, chantaje, secretos, presión)." },
-              { n: "3", text: "Al tocarlos verás por qué son señal y qué puedes hacer. Los mensajes buenos/tiernos también se explican." },
+              { n: "1", text: "Leé el chat: parece tranquilo, pero trae red flags escondidas." },
+              { n: "2", text: "Tocá los mensajes que te den mala espina (control, chantaje, secretos, presión)." },
+              { n: "3", text: "Al tocarlos vas a ver por qué son señal y qué podés hacer. Los mensajes sanos también se explican." },
               { n: "4", text: <span>Cuando sientas que ya viste todo, dale a <strong className="text-coral-deep">Terminar revisión</strong>.</span> },
             ].map((step) => (
               <div key={step.n} className="flex gap-3 rounded-2xl border border-line/70 bg-white/70 p-3">
@@ -406,7 +406,7 @@ export default function Game2Page() {
               </div>
             ))}
             <Button variant="coral" size="lg" className="mt-2 w-full" onClick={() => { setIntroOpen(false); setStarted(true); playSoftClick(); }}>
-              Empezar
+              Va, empecemos
               <ArrowRight className="h-4 w-4" />
             </Button>
           </div>

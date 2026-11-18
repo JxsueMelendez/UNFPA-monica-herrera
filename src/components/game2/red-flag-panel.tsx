@@ -75,7 +75,7 @@ export function RedFlagPanel({
                   {redFlag ? "Análisis del mensaje" : "Lectura del mensaje"}
                 </p>
                 <h2 className="mt-1 font-display text-2xl font-bold leading-tight text-ink">
-                  {redFlag ? "Ojo: esto sí es red flag 🚩" : "Tranqui, esto no es red flag"}
+                  {redFlag ? "Ojo: esto sí es red flag 🚩" : "Calma, esto no es red flag"}
                 </h2>
                 {redFlag ? (
                   <div className="mt-2 flex flex-wrap gap-2">
@@ -86,7 +86,7 @@ export function RedFlagPanel({
                   </div>
                 ) : (
                   <p className="mt-1 text-sm font-semibold text-coral-deep">
-                    Un mensaje tranqui o de cuidado también se puede leer.
+                    Un mensaje sano o de cuidado también se puede leer.
                   </p>
                 )}
               </div>
@@ -113,7 +113,7 @@ export function RedFlagPanel({
                     <Lightbulb className="mt-0.5 h-4 w-4 shrink-0 text-coral-deep" />
                     <div>
                       <p className="text-sm font-extrabold uppercase tracking-[0.08em] text-coral-deep">
-                        Qué puedes hacer
+                        Qué podés hacer
                       </p>
                       <p className="mt-1 text-sm font-medium leading-relaxed text-ink-soft">
                         {redFlag.advice}
@@ -135,8 +135,8 @@ export function RedFlagPanel({
               <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-plum" />
               <p className="text-sm font-medium leading-relaxed text-ink-soft">
                 {flagged
-                  ? "Ya la marcaste. Sigue revisando los demás mensajes."
-                  : "Toca lo que te haga ruido. No pasa nada si exploras."}
+                  ? "Ya la marcaste. Seguí revisando los demás mensajes."
+                  : "Tocá lo que te haga ruido. No pasa nada si explorás."}
               </p>
             </div>
 
@@ -175,10 +175,10 @@ export function RedFlagPanel({
           <Badge variant="coral">{flaggedCount}/{GAME2_TOTAL_FLAGS}</Badge>
         </div>
         <h2 className="mt-3 font-display text-3xl font-extrabold leading-tight">
-          Encuentra lo que se esconde entre líneas.
+          Encontrá lo que se esconde entre líneas.
         </h2>
         <p className="mt-2 text-sm font-medium leading-relaxed text-cream/80">
-          Toca los mensajes con control, chantaje, secretos o presión. Los que son tranqui también se pueden analizar.
+          Tocá los mensajes con control, chantaje, secretos o presión. Los que son sanos también se pueden analizar.
         </p>
         <div className="mt-4">
           <div className="flex items-center justify-between text-xs font-bold text-cream/80">
@@ -217,7 +217,7 @@ export function RedFlagPanel({
         <div className="mt-4 flex items-start gap-2.5 rounded-2xl bg-sand/70 p-3.5">
           <MessageCircleQuestion className="mt-0.5 h-4 w-4 shrink-0 text-plum" />
           <p className="text-sm font-medium leading-relaxed text-ink-soft">
-            No todo es señal. El cuidado real respeta tu rollo; el control viene con culpa, secreto o miedo.
+            No todo es señal. El cuidado real respeta tu onda; el control viene con culpa, secreto o miedo.
           </p>
         </div>
 
@@ -251,7 +251,7 @@ export function RedFlagPanel({
           Terminar revisión
         </Button>
         <p className="mt-2 text-center text-xs font-medium text-ink-faint">
-          Puedes terminar cuando quieras. Luego verás lo que faltó.
+          Podés terminar cuando querás. Después vas a ver lo que faltó.
         </p>
       </div>
     </Card>

@@ -15,7 +15,7 @@ export function KnotGirl({ knots }: KnotGirlProps) {
     "Ahí va",
     "Un poco enredada",
     "Muy enredada",
-    "Súper apretada",
+    "Bien apretada",
   ];
 
   return (
@@ -29,7 +29,7 @@ export function KnotGirl({ knots }: KnotGirlProps) {
             {labels[level]}
           </p>
           <p className="mt-1 text-xs font-medium leading-relaxed text-ink-soft">
-            Si respondes cuidándote, los nudos se aflojan. Si te enredas en lo que no te hace bien, se aprietan.
+            Si respondés cuidándote, los nudos se aflojan. Si te enredás en lo que no te hace bien, se aprietan.
           </p>
           <div className="mt-3 flex gap-1.5">
             {Array.from({ length: 5 }).map((_, i) => {

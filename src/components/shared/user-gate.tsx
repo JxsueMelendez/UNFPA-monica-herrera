@@ -11,10 +11,10 @@ export function UserGate() {
           <Compass className="h-8 w-8" />
         </div>
         <h1 className="mt-6 font-display text-3xl font-semibold tracking-[-0.02em] text-ink">
-          Primero, cuéntanos tu nombre
+          Primero, decinos tu nombre
         </h1>
         <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-ink-soft">
-          Tu progreso se guarda solo en este dispositivo. No necesitas crear una
+          Tu progreso se guarda solo en este dispositivo. No necesitás crear una
           cuenta ni dar datos personales reales.
         </p>
         <Link href="/" className={buttonVariants({ variant: "coral", size: "lg", className: "mt-7" })}>

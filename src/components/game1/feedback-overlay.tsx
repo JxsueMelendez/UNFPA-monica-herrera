@@ -83,11 +83,11 @@ export function FeedbackOverlay({
                 {card.feedback.title}
               </h2>
               <p className="mt-1.5 text-sm font-medium leading-relaxed text-ink-soft">
-                Tu elección:{" "}
+                Lo que elegiste:{" "}
                 <strong className="font-semibold text-ink">
                   {choice === "share" ? "Compartir" : "Cuestionar"}
                 </strong>{" "}
-                · Esperada:{" "}
+                · Lo sano era:{" "}
                 <strong className="font-semibold text-ink">{expected}</strong>
               </p>
             </div>
@@ -136,7 +136,8 @@ export function FeedbackOverlay({
             <div className="flex items-start gap-2.5 rounded-2xl border border-coral/20 bg-coral-soft/40 p-4">
               <ShieldAlert className="mt-0.5 h-4 w-4 shrink-0 text-coral-deep" />
               <p className="text-sm font-medium leading-relaxed text-ink-soft">
-                Tranqui, no se trata de acertar perfecto. Estas señales a veces se disfrazan de cuidado.
+                Tranquila, no se trata de acertar todo. Estas señales a veces se
+                disfrazan de cuidado.
               </p>
             </div>
           ) : null}

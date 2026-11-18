@@ -155,8 +155,8 @@ export default function Game3Page() {
       <GamePageHeader
         icon={Route}
         eyebrow="Juego 03 · Situaciones"
-        title="Desenreda la situación"
-        description="Vas a leer situaciones reales que le pasan a mucha gente. Elige qué harías: si te cuidas, los nudos se aflojan; si te enredas, se aprietan."
+        title="Desenredá la situación"
+        description="Vas a leer situaciones que le pasan a mucha gente. Elegí qué harías: si te cuidás, los nudos se aflojan; si te enredás, se aprietan."
         tone="coral"
       >
         <div className="flex items-center gap-4 rounded-3xl border border-line bg-white/80 p-4 shadow-sm">
@@ -199,7 +199,7 @@ export default function Game3Page() {
                 <Badge variant="outline">{decisions.length}</Badge>
               </div>
               {decisions.length === 0 ? (
-                <p className="mt-2 text-xs leading-relaxed text-ink-soft">Lo que elijas se va a ir guardando aquí.</p>
+                <p className="mt-2 text-xs leading-relaxed text-ink-soft">Lo que elijás se va a ir guardando aquí.</p>
               ) : (
                 <ol className="mt-3 max-h-48 space-y-2.5 overflow-y-auto pr-1">
                   {[...decisions].reverse().map((decision, index) => (
@@ -232,7 +232,7 @@ export default function Game3Page() {
         </div>
       </Modal>
 
-      <Modal open={introOpen} onClose={() => { setIntroOpen(false); playSoftClick(); }} className="max-w-lg" ariaLabel="Cómo jugar Desenreda la situación">
+      <Modal open={introOpen} onClose={() => { setIntroOpen(false); playSoftClick(); }} className="max-w-lg" ariaLabel="Cómo jugar Desenredá la situación">
         <div className="overflow-hidden">
           <div className="bg-coral-soft/60 px-6 pb-5 pt-6 sm:px-7">
             <div className="flex items-center gap-3">
@@ -241,16 +241,16 @@ export default function Game3Page() {
               </span>
               <div>
                 <Badge variant="coral">Cómo jugar</Badge>
-                <h2 className="mt-1 font-display text-2xl font-extrabold leading-tight text-ink sm:text-3xl">Desenreda la situación</h2>
+                <h2 className="mt-1 font-display text-2xl font-extrabold leading-tight text-ink sm:text-3xl">Desenredá la situación</h2>
               </div>
             </div>
           </div>
           <div className="space-y-3 p-6 sm:p-7">
             {[
-              { n: "1", text: "Vas a leer situaciones que pasan en la vida real, en párrafos." },
-              { n: "2", text: "En cada una eliges qué harías tú." },
-              { n: "3", text: "Si te cuidas y pones límites, los nudos se aflojan; si te enredas o cedes ante red flags, se aprietan." },
-              { n: "4", text: "No hay respuestas perfectas, solo formas de ir desenredando lo que sientes." },
+              { n: "1", text: "Vas a leer situaciones que pasan en el día a día, en párrafos." },
+              { n: "2", text: "En cada una elegís qué harías vos." },
+              { n: "3", text: "Si te cuidás y ponés límites, los nudos se aflojan; si te enredás o cedés ante red flags, se aprietan." },
+              { n: "4", text: "No hay respuestas perfectas, solo formas de ir desenredando lo que sentís." },
             ].map((step) => (
               <div key={step.n} className="flex gap-3 rounded-2xl border border-line/70 bg-white/70 p-3">
                 <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-coral text-xs font-extrabold text-white">{step.n}</span>
@@ -258,7 +258,7 @@ export default function Game3Page() {
               </div>
             ))}
             <Button variant="coral" size="lg" className="mt-2 w-full" onClick={() => { setIntroOpen(false); playSoftClick(); }}>
-              Empezar
+              Va, empecemos
               <ArrowRight className="h-4 w-4" />
             </Button>
           </div>
@@ -294,7 +294,7 @@ function EndingView({ ending, knots, decisions, onReplay }: { ending: StoryEndin
                 </ul>
               </div>
               <div className="mt-4 rounded-2xl border border-coral/20 bg-coral-soft/50 p-5">
-                <div className="flex items-center gap-2"><LifeBuoy className="h-4 w-4 text-coral-deep" /><h3 className="font-display text-lg font-bold text-ink">Si necesitas apoyo</h3></div>
+                <div className="flex items-center gap-2"><LifeBuoy className="h-4 w-4 text-coral-deep" /><h3 className="font-display text-lg font-bold text-ink">Si necesitás apoyo</h3></div>
                 <ul className="mt-3 space-y-2">
                   {ending.support.map((s) => <li key={s} className="flex gap-2 text-sm font-medium text-ink-soft"><span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />{s}</li>)}
                 </ul>

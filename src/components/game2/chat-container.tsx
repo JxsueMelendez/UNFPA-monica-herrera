@@ -95,15 +95,15 @@ export function ChatContainer({
 
         <div className="flex items-start gap-2 rounded-2xl border border-dashed border-line bg-white/50 p-3 text-[0.65rem] leading-relaxed text-ink-faint">
           <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" />
-          Toca cualquier mensaje para analizarlo. Algunos son señales de alerta;
-          otros son mensajes neutros o de cuidado.
+          Tocá cualquier mensaje para analizarlo. Algunos son señales de alerta;
+          otros son mensajes sanos o de cuidado.
         </div>
       </div>
 
       <div className="flex items-center gap-2 border-t border-line/70 bg-white px-4 py-3">
         <div className="flex flex-1 items-center gap-2 rounded-full bg-sand px-3.5 py-2 text-xs text-ink-faint">
           <LockKeyhole className="h-3.5 w-3.5" />
-          Chat simulado: no puedes escribir aquí
+          Chat simulado: aquí no podés escribir
         </div>
         <span className="grid h-8 w-8 place-items-center rounded-full bg-plum-mist text-plum">
           <ShieldCheck className="h-4 w-4" />

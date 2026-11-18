@@ -188,7 +188,7 @@ export function SwipeCard({
 
         <div className="mt-3 flex items-center gap-2 rounded-2xl bg-sand/70 px-3 py-2 text-[0.68rem] font-medium leading-snug text-ink-soft">
           <ShieldQuestion className="h-3.5 w-3.5 shrink-0 text-plum" />
-          Pregúntate: ¿este mensaje cuida tu autonomía o normaliza el control?
+          Preguntate: ¿este mensaje cuida tu autonomía o normaliza el control?
         </div>
       </div>
     </motion.article>

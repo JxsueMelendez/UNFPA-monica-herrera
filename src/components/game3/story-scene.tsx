@@ -61,11 +61,11 @@ export function StoryScene({ node, disabled = false, onChoose }: StorySceneProps
             <div className="flex items-center gap-2">
               <Flag className="h-5 w-5 fill-current text-coral" />
               <h2 className="font-display text-2xl font-extrabold text-ink sm:text-3xl">
-                {node.prompt ?? "¿Qué harías tú?"}
+                {node.prompt ?? "¿Qué harías vos?"}
               </h2>
             </div>
             <p className="mt-1 text-sm font-medium text-ink-faint">
-              No hay respuesta perfecta, elige lo que harías y mira cómo se mueven tus nudos.
+              No hay respuesta perfecta: elegí lo que harías y mirá cómo se mueven tus nudos.
             </p>
 
             <div className="mt-4 space-y-2.5">

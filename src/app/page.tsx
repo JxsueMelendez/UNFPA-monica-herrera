@@ -40,7 +40,7 @@ const gamePreviews: GamePreview[] = [
     number: "01",
     title: "¿Lo compartes o lo cuestionas?",
     description:
-      "Desliza publicaciones y decide qué mensajes amplificarías y cuáles merecen una segunda mirada.",
+      "Deslizá publicaciones y decidí qué mensajes amplificarías y cuáles merecen una segunda mirada.",
     href: "/juego-1",
     tag: "Swipe",
     icon: ArrowLeftRight,
@@ -51,7 +51,7 @@ const gamePreviews: GamePreview[] = [
     number: "02",
     title: "Entre líneas",
     description:
-      "Inspecciona una conversación y encuentra las banderas rojas escondidas entre mensajes que parecen normales.",
+      "Revisá una conversación y encontrá las banderas rojas escondidas entre mensajes que parecen normales.",
     href: "/juego-2",
     tag: "Chat",
     icon: MessagesSquare,
@@ -60,9 +60,9 @@ const gamePreviews: GamePreview[] = [
   },
   {
     number: "03",
-    title: "Tú decides el camino",
+    title: "Vos decidís el camino",
     description:
-      "Toma decisiones, observa sus consecuencias y descubre cómo cuidar tus metas y tu red de apoyo.",
+      "Tomá decisiones, mirá sus consecuencias y descubrí cómo cuidar tus metas y tu mara.",
     href: "/juego-3",
     tag: "Historia",
     icon: Route,
@@ -130,8 +130,8 @@ export default function OnboardingPage() {
           </h1>
 
           <p className="mt-7 max-w-xl text-pretty text-base leading-relaxed text-ink-soft sm:text-lg">
-            En este espacio podrás explorar diferentes historias, situaciones y
-            mensajes que te invitarán a cuestionar lo que muchas veces
+            En este espacio vas a poder explorar diferentes historias, situaciones
+            y mensajes que te van a invitar a cuestionar lo que muchas veces
             consideramos normal en una relación.
           </p>
 
@@ -157,7 +157,7 @@ export default function OnboardingPage() {
               </Link>
             ) : (
               <span className="text-sm text-ink-faint">
-                Tú decides hasta dónde llegar.
+                Vos decidís hasta dónde llegar.
               </span>
             )}
           </div>
@@ -189,7 +189,7 @@ export default function OnboardingPage() {
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-ink-soft">
               Usaremos tu nombre para acompañarte durante la experiencia. Puede
-              ser un pseudónimo: no necesitas dar tus datos reales.
+              ser un pseudónimo: no necesitás dar tus datos reales.
             </p>
 
             {sessions.length > 0 ? (
@@ -239,7 +239,7 @@ export default function OnboardingPage() {
                 <Sparkles className="pointer-events-none absolute right-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gold" />
               </div>
               <p id="name-help" className="mt-2 text-xs leading-relaxed text-ink-faint">
-                Máximo 32 caracteres. Puedes cambiarlo cuando quieras volviendo
+                Máximo 32 caracteres. Podés cambiarlo cuando quieras volviendo
                 a esta pantalla.
               </p>
               {error ? (
@@ -286,7 +286,7 @@ export default function OnboardingPage() {
             </h2>
           </div>
           <p className="max-w-md text-sm leading-relaxed text-ink-soft">
-            A través de experiencias interactivas podrás tomar decisiones,
+            A través de experiencias interactivas vas a poder tomar decisiones,
             descubrir mensajes ocultos, identificar señales de alerta y
             diferenciar el amor del control.
           </p>
@@ -338,7 +338,7 @@ export default function OnboardingPage() {
               </span>
             </div>
             <h2 className="mt-4 max-w-2xl font-display text-2xl font-semibold leading-tight sm:text-3xl">
-              ¡Explora, juega y descubre nuevas formas de ver las relaciones!
+              ¡Explorá, jugá y descubrí nuevas formas de ver las relaciones!
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-cream/75">
               Cada juego está diseñado para ayudarte a reflexionar sobre las
@@ -357,7 +357,7 @@ export default function OnboardingPage() {
             </span>
             <span className="inline-flex items-center gap-2">
               <CheckCircle2 className="h-4 w-4 text-teal-soft" />
-              Puedes pausar y volver después
+              Podés pausar y volver después
             </span>
           </div>
         </div>

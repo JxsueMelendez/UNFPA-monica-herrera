@@ -156,7 +156,7 @@ export default function Game1Page() {
         icon={ArrowLeftRight}
         eyebrow="Juego 01 · Swipe"
         title="¿Lo compartes o lo cuestionas?"
-        description="Desliza cada publicación hacia la derecha si transmite una idea saludable, o hacia la izquierda si normaliza control, celos o desigualdad. No hay prisa: mira la frase completa."
+        description="Deslizá cada publicación a la derecha si transmite una idea sana, o a la izquierda si normaliza control, celos o desigualdad. No hay prisa: leé la frase completa."
         tone="coral"
       >
         <div className="flex items-center gap-4 rounded-3xl border border-line bg-white/80 p-4 shadow-sm">
@@ -207,17 +207,17 @@ export default function Game1Page() {
                   </div>
                   <h2 className="mt-4 max-w-lg font-display text-3xl font-semibold leading-tight sm:text-4xl">
                     {score >= 8
-                      ? "Tu mirada está bien afinada."
+                      ? "Ya tenés buen ojo."
                       : score >= 5
-                        ? "Ya distingues las señales."
-                        : "Empezaste a mirar distinto."}
+                        ? "Ya cachás las señales."
+                        : "Empezaste a ver las cosas de otra forma."}
                   </h2>
                   <p className="mt-3 max-w-lg text-sm leading-relaxed text-cream/75">
                     {score >= 8
-                      ? "Reconociste la mayoría de los mensajes que cuidaban tu autonomía y los que la ponían en riesgo. Ese ojo crítico también se entrena fuera de la pantalla."
+                      ? "Cachaste la mayoría de los mensajes que cuidaban tu autonomía y los que la ponían en riesgo. Ese ojo crítico también se entrena fuera de la pantalla."
                       : score >= 5
                         ? "Identificaste varias señales. Las dinámicas de control suelen esconderse en frases amables; seguir practicando te ayuda a nombrarlas antes."
-                        : "Las señales de control pueden ser difíciles de ver, sobre todo cuando vienen mezcladas con afecto. No es un examen sobre ti: es una invitación a seguir mirando."}
+                        : "Las señales de control pueden ser difíciles de ver, sobre todo cuando vienen mezcladas con afecto. No es un examen sobre vos: es una invitación a seguir mirando."}
                   </p>
                 </div>
                 <ProgressRing
@@ -244,7 +244,7 @@ export default function Game1Page() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-2xl border border-line bg-sand/50 p-4">
                   <p className="text-xs font-bold uppercase tracking-[0.12em] text-ink-faint">
-                    Lo que entrenaste
+                    Lo que practicaste
                   </p>
                   <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">
                     A distinguir cuidado de control, apoyo de aislamiento y
@@ -256,7 +256,7 @@ export default function Game1Page() {
                     Para pensar
                   </p>
                   <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">
-                    ¿Qué frase te costó más identificar? ¿La habías escuchado
+                    ¿Cuál frase te costó más identificar? ¿La habías escuchado
                     antes en una serie, en un chat o en una canción?
                   </p>
                 </div>
@@ -265,10 +265,10 @@ export default function Game1Page() {
               <div className="mt-5 flex items-start gap-2.5 rounded-2xl bg-plum-mist/60 p-4">
                 <HeartHandshake className="mt-0.5 h-4 w-4 shrink-0 text-plum" />
                 <p className="text-sm leading-relaxed text-ink-soft">
-                  Si alguna publicación te hizo pensar en una situación propia o
-                  de alguien cercano, no tienes que resolverlo sola. Una persona
-                  adulta de confianza o una institución especializada puede
-                  ayudarte a mirar con más claridad.
+                  Si alguna publicación te hizo pensar en una situación tuya o
+                  de alguien cercano, no tenés que resolverlo vos sola o solo.
+                  Una persona adulta de confianza o una institución especializada
+                  puede ayudarte a verlo con más claridad.
                 </p>
               </div>
 
@@ -341,7 +341,7 @@ export default function Game1Page() {
                       No quedan tarjetas
                     </p>
                     <p className="mt-1 text-sm text-ink-soft">
-                      Revisa tu resultado o vuelve a intentarlo.
+                      Revisá tu resultado o volvé a intentarlo.
                     </p>
                   </div>
                 </Card>
@@ -371,7 +371,7 @@ export default function Game1Page() {
               </Button>
             </div>
             <p className="mx-auto mt-3 max-w-lg text-center text-[0.7rem] font-medium text-ink-faint">
-              Arrastra la tarjeta o usa los botones. También puedes presionar ← y →.
+              Arrastrá la tarjeta o usá los botones. También podés presionar ← y →.
             </p>
           </section>
 
@@ -387,10 +387,10 @@ export default function Game1Page() {
               </div>
               <ol className="mt-4 space-y-3">
                 {[
-                  "Lee la publicación completa, no solo el emoji.",
-                  "Pregúntate qué idea se está normalizando.",
-                  "Desliza a la derecha para compartir o a la izquierda para cuestionar.",
-                  "Revisa la explicación y sigue con la próxima.",
+                  "Leé la publicación completa, no solo el emoji.",
+                  "Preguntate qué idea se está normalizando.",
+                  "Deslizá a la derecha para compartir o a la izquierda para cuestionar.",
+                  "Revisá la explicación y seguí con la próxima.",
                 ].map((step, index) => (
                   <li key={step} className="flex gap-3 text-sm leading-relaxed text-ink-soft">
                     <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-sand text-[0.68rem] font-bold text-plum">
@@ -434,8 +434,8 @@ export default function Game1Page() {
               <Info className="mt-0.5 h-4 w-4 shrink-0 text-gold-deep" />
               <p className="text-xs leading-relaxed text-ink-soft">
                 No estás compartiendo la publicación de verdad: estás eligiendo
-                qué idea amplificarías. El objetivo no es juzgar a quien la
-                escribió, sino reconocer el mensaje.
+                qué idea amplificarías. La idea no es juzgar a quien la escribió,
+                sino reconocer el mensaje.
               </p>
             </div>
           </aside>
@@ -467,8 +467,8 @@ export default function Game1Page() {
           <div className="space-y-3 p-6 sm:p-7">
             {[
               { n: "1", text: "Te van a salir publicaciones como las que ves en redes." },
-              { n: "2", text: <span>Desliza o toca <strong className="text-teal-deep">Compartir</strong> si el mensaje está sano y respeta.</span> },
-              { n: "3", text: <span>Elige <strong className="text-coral-deep">Cuestionar</strong> si ves celos, control, secretos o mala vibra (red flags).</span> },
+              { n: "2", text: <span>Deslizá o tocá <strong className="text-teal-deep">Compartir</strong> si el mensaje es sano y respeta.</span> },
+              { n: "3", text: <span>Elegí <strong className="text-coral-deep">Cuestionar</strong> si ves celos, control, secretos o mala vibra (red flags).</span> },
               { n: "4", text: "Después de cada tarjeta te contamos por qué, sin juzgar a nadie." },
             ].map((step) => (
               <div key={step.n} className="flex gap-3 rounded-2xl border border-line/70 bg-white/70 p-3">

@@ -31,7 +31,7 @@ export function MessageBubble({
       transition={{ duration: 0.25 }}
       onClick={() => onSelect(message)}
       aria-pressed={flagged}
-      aria-label={`Mensaje de ${isTeen ? "Sofi" : "Álex"} a las ${message.time}. Toca para analizarlo.`}
+      aria-label={`Mensaje de ${isTeen ? "Sofi" : "Álex"} a las ${message.time}. Tocá para analizarlo.`}
       className={cn(
         "group flex w-full gap-2 text-left focus-visible:outline-none",
         isTeen ? "justify-end" : "justify-start",

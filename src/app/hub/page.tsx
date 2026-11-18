@@ -105,7 +105,7 @@ export default function HubPage() {
       number: "01",
       title: "¿Lo compartes o lo cuestionas?",
       description:
-        "Desliza publicaciones y distingue entre vínculos que suman y mensajes que normalizan el control.",
+        "Deslizá publicaciones y distinguí entre vínculos que suman y mensajes que normalizan el control.",
       href: "/juego-1",
       icon: ArrowLeftRight,
       tag: "Swipe",
@@ -128,7 +128,7 @@ export default function HubPage() {
       number: "02",
       title: "Entre líneas",
       description:
-        "Lee una conversación realista y encuentra las banderas rojas escondidas entre mensajes cotidianos.",
+        "Leé una conversación realista y encontrá las banderas rojas escondidas entre mensajes cotidianos.",
       href: "/juego-2",
       icon: MessagesSquare,
       tag: "Chat",
@@ -151,9 +151,9 @@ export default function HubPage() {
     {
       key: "game3",
       number: "03",
-      title: "Tú decides el camino",
+      title: "Vos decidís el camino",
       description:
-        "Una historia con decisiones, consecuencias y varios finales sobre autonomía y redes de apoyo.",
+        "Una historia con decisiones, consecuencias y varios finales sobre autonomía y tu mara.",
       href: "/juego-3",
       icon: Route,
       tag: "Historia",
@@ -207,10 +207,10 @@ export default function HubPage() {
             </h1>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-ink-soft sm:text-base">
               {completionCount === 0
-                ? "Elige un juego para empezar. No hay una forma correcta de recorrer esta experiencia: lo importante es lo que descubras en el camino."
+                ? "Elegí un juego para empezar. No hay una forma correcta de recorrer esta experiencia: lo importante es lo que descubrás en el camino."
                 : completionCount === 3
-                  ? "Completaste los tres juegos. Puedes repasar cualquier recorrido, probar otras decisiones o volver cuando lo necesites."
-                  : `Ya completaste ${completionCount} de 3 juegos. Puedes seguir con el siguiente o volver a uno anterior.`}
+                  ? "Completaste los tres juegos. Podés repasar cualquier recorrido, probar otras decisiones o volver cuando lo necesités."
+                  : `Ya completaste ${completionCount} de 3 juegos. Podés seguir con el siguiente o volver a uno anterior.`}
             </p>
 
             <div className="mt-7 flex flex-wrap items-center gap-3">
@@ -319,7 +319,7 @@ export default function HubPage() {
           <div>
             <Badge variant="plum">Hub de juegos</Badge>
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-[-0.02em] text-ink">
-              Elige tu próxima parada
+              Elegí tu próxima parada
             </h2>
           </div>
           <button
@@ -448,10 +448,10 @@ export default function HubPage() {
                 Un recordatorio antes de seguir
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">
-                Este recorrido no evalúa si eres una buena o mala persona, ni si
+                Este recorrido no evalúa si sos una buena o mala persona, ni si
                 tu relación es “correcta”. Te invita a mirar con más claridad las
                 dinámicas de poder, tus límites y las personas que pueden
-                acompañarte. Si algo te incomoda, puedes pausar y hablar con
+                acompañarte. Si algo te incomoda, podés pausar y hablar con
                 alguien de confianza.
               </p>
             </div>

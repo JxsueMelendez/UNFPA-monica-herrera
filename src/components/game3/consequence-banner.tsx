@@ -50,7 +50,7 @@ export function ConsequenceBanner({ visible, impact }: ConsequenceBannerProps) {
                 Red flag / El hilo se mueve
               </p>
               <h2 className="mt-2 font-display text-2xl font-semibold leading-tight sm:text-3xl">
-                Esta acción tendrá consecuencias…
+                Esta decisión va a tener consecuencias…
               </h2>
               {impact ? (
                 <p className="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-cream/75">

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: "%s · UNFPA",
   },
   description:
-    "Experiencia interactiva del UNFPA para adolescentes: explora historias, descubre mensajes ocultos, identifica señales de alerta y diferencía el amor del control.",
+    "Experiencia interactiva del UNFPA para adolescentes: explorá historias, descubrí mensajes ocultos, identificá señales de alerta y diferenciá el amor del control.",
   applicationName: "UNFPA",
   keywords: [
     "UNFPA",

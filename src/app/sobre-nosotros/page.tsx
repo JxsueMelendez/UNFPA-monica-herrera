@@ -222,7 +222,7 @@ export default function SobreNosotrosPage() {
             <div className="min-w-0">
               <Badge variant="gold">Experiencias interactivas</Badge>
               <h2 className="mt-3 font-display text-2xl font-semibold tracking-[-0.02em] text-ink sm:text-3xl">
-                Aprende jugando
+                Aprendé jugando
               </h2>
               <div className="mt-4 space-y-3.5 text-[0.95rem] leading-relaxed text-ink-soft">
                 <p>
@@ -309,7 +309,7 @@ export default function SobreNosotrosPage() {
                 <p>
                   Sobre todo, queremos que reconozcas que pedir ayuda,
                   expresar tus dudas y acudir a personas de confianza son
-                  acciones valiosas, y que nunca eres responsable de la
+                  acciones valiosas, y que nunca sos responsable de la
                   manipulación o el abuso ejercido por una persona adulta.
                 </p>
               </div>
@@ -374,7 +374,7 @@ export default function SobreNosotrosPage() {
               <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-soft">
                 Estamos preparando este apartado con las preguntas más
                 comunes sobre la plataforma y los temas que aborda. Mientras
-                tanto, si tienes una duda, puedes escribirnos a{" "}
+                tanto, si tenés una duda, podés escribirnos a{" "}
                 <a
                   href="mailto:recepcion@unfpa.org.sv"
                   className="font-semibold text-plum underline decoration-plum/30 underline-offset-4 transition hover:decoration-plum"

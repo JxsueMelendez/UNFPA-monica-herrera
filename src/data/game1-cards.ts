@@ -1,7 +1,7 @@
 import type { Game1Card } from "@/lib/types";
 
 /**
- * Tarjetas con lenguaje juvenil y fotos públicas (Wikimedia Commons / Unsplash source).
+ * Tarjetas con lenguaje juvenil salvadoreño y fotos públicas (Wikimedia Commons / Unsplash source).
  */
 export const game1Cards: Game1Card[] = [
   {
@@ -16,7 +16,7 @@ export const game1Cards: Game1Card[] = [
       imageAlt: "Sticker de apoyo",
     },
     caption:
-      "Mi compa me ayudó a armar mi horario pa’ estudiar y se puso igual de feliz que yo cuando me fue bien. Neta, así se siente que alguien te eche porras de verdad. 💜",
+      "Mi chera me ayudó a armar el horario para estudiar y se puso igual de feliz que yo cuando me fue bien. Cabal, así se siente que alguien te eche porras de verdad. 💜",
     likes: 1240,
     comments: 38,
     shares: 96,
@@ -25,8 +25,8 @@ export const game1Cards: Game1Card[] = [
       title: "Echarse porras, no controlar",
       category: "Relación sana",
       explanation:
-        "Que alguien celebre tus logros y respete tus tiempos está chido. El apoyo real no trae condiciones, ni te vigila ni te hace sentir culpa.",
-      reflection: "¿Esta persona suma a lo que quieres lograr o te pide dejarlo?",
+        "Que alguien celebre tus logros y respete tus tiempos está chivo. El apoyo de verdad no viene con condiciones, ni te vigila ni te hace sentir culpa.",
+      reflection: "¿Esta persona le suma a lo que querés lograr o te pide que lo dejés?",
       takeaway: "Quien te quiere de verdad te impulsa, no te frena.",
     },
   },
@@ -42,7 +42,7 @@ export const game1Cards: Game1Card[] = [
       imageAlt: "Sticker",
     },
     caption:
-      "Tengo 16 y él 28. Sí es más grande pero me cuida un buen. No me deja salir con mis compas porque dice que ‘sabe cómo son’. Dice que es por mi bien.",
+      "Tengo 16 y él 28. Sí es más grande, pero me cuida bastante. No me deja salir con mis cheros porque dice que ‘sabe cómo son’. Dice que es por mi bien.",
     likes: 2380,
     comments: 412,
     shares: 78,
@@ -51,8 +51,8 @@ export const game1Cards: Game1Card[] = [
       title: "‘Cuidarte’ que en realidad te encierra",
       category: "Aislamiento y control",
       explanation:
-        "Decidir por ti con quién sales o alejarte de tus amistades no es cuidarte, es controlarte. Y con esa diferencia de edad hay más desigualdad de poder, aunque lo pinten bonito.",
-      reflection: "¿Qué pierdes cuando alguien más decide por ti con quién te juntas?",
+        "Decidir por vos con quién salís o alejarte de tus cheros no es cuidarte, es controlarte. Y con esa diferencia de edad hay más desigualdad de poder, aunque lo pinten bonito.",
+      reflection: "¿Qué perdés cuando alguien más decide por vos con quién te juntás?",
       takeaway: "El amor no te aísla de tu gente, te conecta.",
     },
   },
@@ -68,7 +68,7 @@ export const game1Cards: Game1Card[] = [
       imageAlt: "Sticker",
     },
     caption:
-      "Hoy le conté a mi mamá que me late alguien. No me regañó ni me juzgó, solo me preguntó qué me hace sentir bien y qué no. Hablar con alguien de confianza también es cuidarte.",
+      "Hoy le conté a mi mamá que me gusta alguien. No me regañó ni me juzgó, solo me preguntó qué me hace sentir bien y qué no. Hablar con alguien de confianza también es cuidarte.",
     likes: 890,
     comments: 54,
     shares: 120,
@@ -77,8 +77,8 @@ export const game1Cards: Game1Card[] = [
       title: "Tener con quién hablar",
       category: "Red de apoyo",
       explanation:
-        "Tener personas adultas que te escuchan sin juzgarte te ayuda a ponerle nombre a lo que sientes. No tienes que cargar con todo sola o solo.",
-      reflection: "¿Con quién puedes hablar de lo que te pasa sin que te caigan encima?",
+        "Tener personas adultas que te escuchan sin juzgarte te ayuda a ponerle nombre a lo que sentís. No tenés que cargar con todo vos sola o solo.",
+      reflection: "¿Con quién podés hablar de lo que te pasa sin que te caigan encima?",
       takeaway: "Pedir apoyo es fuerza, no debilidad.",
     },
   },
@@ -94,7 +94,7 @@ export const game1Cards: Game1Card[] = [
       imageAlt: "Sticker",
     },
     caption:
-      "Me mandó 47 mensajes y 12 llamadas en una hora porque ‘se preocupó’. Dice que si no le contesto al toque es porque ando con alguien. Ya no sé si es amor o miedo.",
+      "Me mandó 47 mensajes y 12 llamadas en una hora porque ‘se preocupó’. Dice que si no le contesto de una es porque ando con alguien. Ya no sé si es amor o miedo.",
     likes: 1560,
     comments: 203,
     shares: 44,
@@ -103,8 +103,8 @@ export const game1Cards: Game1Card[] = [
       title: "Eso no es amor, es vigilarte",
       category: "Control digital",
       explanation:
-        "Exigir que contestes al instante, estarte contando llamadas o checando dónde andas no es amor, es control. La ansiedad del otro no es tu culpa ni tu chamba.",
-      reflection: "¿Usas tu cel en paz o sientes que tienes que rendir cuentas?",
+        "Exigir que contestés al instante, llevarte la cuenta de las llamadas o andar viendo dónde estás no es amor, es control. La ansiedad del otro no es tu culpa ni tu obligación.",
+      reflection: "¿Usás el cel en paz o sentís que tenés que rendir cuentas?",
       takeaway: "Los celos y la vigilancia no prueban amor.",
     },
   },
@@ -115,12 +115,12 @@ export const game1Cards: Game1Card[] = [
     visual: {
       gradient: "from-teal-soft via-cream to-plum-mist",
       emoji: "🎨",
-      label: "Plan con compas",
+      label: "Plan con la mara",
       image: "/stickers/s-249.jpg",
       imageAlt: "Sticker",
     },
     caption:
-      "Le dije a mi pareja que iba a salir con mis compas y me dijo: ‘Va, pásatela bien, yo también tengo planes. Nos vemos mañana’. Los celos no son prueba de amor, la confianza sí.",
+      "Le dije a mi pareja que iba a salir con la mara y me dijo: ‘Va, pasala bien, yo también tengo planes. Nos vemos mañana’. Los celos no son prueba de amor, la confianza sí.",
     likes: 2100,
     comments: 67,
     shares: 310,
@@ -129,8 +129,8 @@ export const game1Cards: Game1Card[] = [
       title: "Confiar y dar espacio",
       category: "Relación sana",
       explanation:
-        "Una relación chida respeta tus amistades, tus tiempos y tu independencia. Tener tu espacio no rompe el vínculo, lo hace más sano.",
-      reflection: "¿Puedes tener tus planes sin sentir culpa?",
+        "Una relación chiva respeta tus amistades, tus tiempos y tu independencia. Tener tu espacio no rompe el vínculo, lo hace más sano.",
+      reflection: "¿Podés tener tus planes sin sentir culpa?",
       takeaway: "El espacio personal también es parte de querer bien.",
     },
   },
@@ -146,7 +146,7 @@ export const game1Cards: Game1Card[] = [
       imageAlt: "Sticker",
     },
     caption:
-      "“Nadie te entiende como yo. Tus compas te tienen envidia de lo nuestro. Un día te vas a dar cuenta de que solo me tienes a mí.”",
+      "“Nadie te entiende como yo. Tus cheros te tienen envidia de lo nuestro. Algún día te vas a dar cuenta de que solo me tenés a mí.”",
     likes: 320,
     comments: 89,
     shares: 12,
@@ -155,9 +155,9 @@ export const game1Cards: Game1Card[] = [
       title: "Aislarte poquito a poquito",
       category: "Manipulación",
       explanation:
-        "Hablar mal de tus amistades y hacerte creer que solo esa persona te entiende es una forma de aislarte. La idea es que te quedes sin tu red para que dependa más de ti.",
-      reflection: "¿Quién gana cuando te alejas de la gente que te quiere?",
-      takeaway: "Quien te quiere bien no necesita que te quedes sin tu gente.",
+        "Hablar mal de tus cheros y hacerte creer que solo esa persona te entiende es una forma de aislarte. La idea es que te quedés sin tu mara para que dependás más de él.",
+      reflection: "¿Quién gana cuando te alejás de la gente que te quiere?",
+      takeaway: "Quien te quiere bien no necesita que te quedés sin tu gente.",
     },
   },
   {
@@ -172,7 +172,7 @@ export const game1Cards: Game1Card[] = [
       imageAlt: "Sticker",
     },
     caption:
-      "Un vato más grande me invitó a salir y le dije que nel. No pasó nada. Mi ‘no’ vale y no tengo que dar mil explicaciones. Mi cuerpo, mis tiempos, mis reglas.",
+      "Un maje más grande me invitó a salir y le dije que nel. No pasó nada. Mi ‘no’ vale y no tengo que dar mil explicaciones. Mi cuerpo, mis tiempos, mis reglas.",
     likes: 1730,
     comments: 91,
     shares: 204,
@@ -183,7 +183,7 @@ export const game1Cards: Game1Card[] = [
       explanation:
         "Poner límites y decir que no es cuidarte. Si alguien respeta tu decisión, no te insiste, no te castiga ni te hace sentir mal.",
       reflection: "¿Qué pasa cuando alguien no acepta tu ‘no’?",
-      takeaway: "Tu decisión es tuya y puede cambiar cuando tú quieras.",
+      takeaway: "Tu decisión es tuya y puede cambiar cuando vos quieras.",
     },
   },
   {
@@ -207,7 +207,7 @@ export const game1Cards: Game1Card[] = [
       title: "Cuando te piden guardar secreto",
       category: "Secreto / grooming",
       explanation:
-        "Que te pidan esconder la relación de personas adultas de confianza es red flag. El halago de ‘eres muy madura’ a veces se usa para justificar diferencias de poder y saltarse límites.",
+        "Que te pidan esconder la relación de personas adultas de confianza es red flag. El halago de ‘sos muy madura’ a veces se usa para justificar diferencias de poder y saltarse límites.",
       reflection: "¿Por qué algo que está bien tendría que esconderse de quienes te cuidan?",
       takeaway: "Lo sano no exige secretos ni silencios.",
     },
@@ -250,7 +250,7 @@ export const game1Cards: Game1Card[] = [
       imageAlt: "Sticker",
     },
     caption:
-      "Mi novio checa mis redes y borra a los vatos que me siguen. Dice que es ‘para cuidar lo nuestro’. Ayer me pidió mi contraseña.",
+      "Mi novio revisa mis redes y borra a los majes que me siguen. Dice que es ‘para cuidar lo nuestro’. Ayer me pidió la contraseña.",
     likes: 760,
     comments: 154,
     shares: 27,
@@ -259,7 +259,7 @@ export const game1Cards: Game1Card[] = [
       title: "Tu privacidad no se negocia",
       category: "Control digital",
       explanation:
-        "Pedir contraseñas, revisar tus mensajes o decidir a quién sigues es meterse con tu privacidad y es control. Protegerse no es controlar al otro.",
+        "Pedir contraseñas, revisar tus mensajes o decidir a quién seguís es meterse con tu privacidad y es control. Cuidar no es controlar al otro.",
       reflection: "¿Qué parte de tu vida privada estás cediendo para evitar pleitos?",
       takeaway: "Tu privacidad no es prueba de amor.",
     },
