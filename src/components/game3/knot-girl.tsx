@@ -1,77 +1,76 @@
 "use client";
 
+import { KnotVisual } from "@/components/game3/knot-visual";
 import { cn } from "@/lib/utils";
 
 interface KnotGirlProps {
-  knots: number; // 0 (libre) - 5 (muy apretado)
+  knots: number; // tensión: 0 (suelto) - 5 (bien apretado)
 }
+
+const LABELS = [
+  "Libre y suelta",
+  "Casi suelta",
+  "Un poco tensa",
+  "Enredada",
+  "Bien apretada",
+  "Muy apretada",
+];
 
 export function KnotGirl({ knots }: KnotGirlProps) {
   const level = Math.max(0, Math.min(5, knots));
-  const free = 5 - level;
-  const labels = [
-    "Libre y en paz",
-    "Casi suelta",
-    "Ahí va",
-    "Un poco enredada",
-    "Muy enredada",
-    "Bien apretada",
-  ];
+  const percent = (level / 5) * 100;
+  const tight = level >= 4;
+  const loose = level <= 1;
 
   return (
-    <div className="rounded-3xl border border-line/80 bg-white/80 p-4 shadow-soft">
-      <div className="flex items-end justify-between gap-4">
-        <div className="flex-1">
+    <div className="overflow-hidden rounded-3xl border border-line/80 bg-white/80 p-4 shadow-soft">
+      <div className="flex items-start justify-between gap-3">
+        <div>
           <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.12em] text-plum">
-            Tus nudos
+            Tu nudo
           </p>
-          <p className="mt-1 text-sm font-semibold text-ink">
-            {labels[level]}
-          </p>
-          <p className="mt-1 text-xs font-medium leading-relaxed text-ink-soft">
-            Si respondés cuidándote, los nudos se aflojan. Si te enredás en lo que no te hace bien, se aprietan.
-          </p>
-          <div className="mt-3 flex gap-1.5">
-            {Array.from({ length: 5 }).map((_, i) => {
-              const tight = i < level;
-              return (
-                <span
-                  key={i}
-                  className={cn(
-                    "h-2.5 flex-1 rounded-full transition-all duration-500",
-                    tight ? "bg-coral" : "bg-teal/50",
-                  )}
-                />
-              );
-            })}
-          </div>
-          <div className="mt-2 flex justify-between text-[0.65rem] font-bold text-ink-faint">
-            <span>Suelta ({free})</span>
-            <span>Nudos ({level})</span>
-          </div>
+          <p className="mt-1 text-sm font-semibold text-ink">{LABELS[level]}</p>
         </div>
+        <span
+          className={cn(
+            "rounded-full px-2.5 py-1 text-[0.6rem] font-extrabold uppercase tracking-[0.1em]",
+            tight
+              ? "bg-coral-soft text-coral-deep"
+              : loose
+                ? "bg-teal-soft text-teal-deep"
+                : "bg-gold-soft text-gold-deep",
+          )}
+        >
+          {tight ? "Apretado" : loose ? "Suelto" : "A medio"}
+        </span>
+      </div>
 
-        <div className="relative h-36 w-24 shrink-0" aria-hidden>
-          <svg viewBox="0 0 100 150" className="h-full w-full">
-            {/* head */}
-            <circle cx="50" cy="22" r="14" className="fill-coral-soft stroke-plum" strokeWidth="3" />
-            {/* body */}
-            <path d="M50 36 C50 36, 38 55, 38 70 L38 95 C38 105, 62 105, 62 95 L62 70 C62 55, 50 36, 50 36Z" className="fill-plum-mist stroke-plum" strokeWidth="3" />
-            {/* arms */}
-            <path d="M38 55 C28 62, 22 72, 24 82" className="stroke-plum" strokeWidth="4" fill="none" strokeLinecap="round" />
-            <path d="M62 55 C72 62, 78 72, 76 82" className="stroke-plum" strokeWidth="4" fill="none" strokeLinecap="round" />
-            {/* legs */}
-            <path d="M43 100 L40 135" className="stroke-plum" strokeWidth="4" fill="none" strokeLinecap="round" />
-            <path d="M57 100 L60 135" className="stroke-plum" strokeWidth="4" fill="none" strokeLinecap="round" />
-            {/* knots / rope */}
-            {level >= 1 && <ellipse cx="50" cy="58" rx="18" ry="6" className="fill-none stroke-coral" strokeWidth={level >= 4 ? 5 : 3} />}
-            {level >= 2 && <path d="M32 72 Q50 82 68 72" className="fill-none stroke-coral" strokeWidth={level >= 4 ? 5 : 3} strokeLinecap="round" />}
-            {level >= 3 && <ellipse cx="50" cy="86" rx="16" ry="6" className="fill-none stroke-coral" strokeWidth={level >= 5 ? 5 : 3} />}
-            {level >= 4 && <path d="M36 64 Q50 56 64 64" className="fill-none stroke-coral-deep" strokeWidth="4" strokeLinecap="round" />}
-            {level >= 5 && <path d="M34 96 Q50 104 66 96" className="fill-none stroke-coral-deep" strokeWidth="5" strokeLinecap="round" />}
-            {level <= 1 && <path d="M30 78 Q50 70 70 78" className="fill-none stroke-teal" strokeWidth="3" strokeLinecap="round" strokeDasharray="4 4" opacity="0.7" />}
-          </svg>
+      <div className="relative mt-1 grid place-items-center py-1">
+        <KnotVisual level={level} size={172} />
+      </div>
+
+      <p className="mt-1 text-center text-xs font-medium leading-relaxed text-ink-soft">
+        Si respondés cuidándote, el nudo se afloja. Si te enredás en lo que no te hace bien, se aprieta.
+      </p>
+
+      <div className="mt-4">
+        <div className="flex items-center justify-between text-[0.6rem] font-bold uppercase tracking-[0.1em] text-ink-faint">
+          <span>Aflojado</span>
+          <span>Apretado</span>
         </div>
+        <div className="relative mt-2 h-2.5 rounded-full bg-gradient-to-r from-teal-soft via-gold-soft to-coral-soft">
+          <div
+            className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-teal via-gold to-coral transition-[width] duration-700 motion-reduce:transition-none"
+            style={{ width: `${percent}%` }}
+          />
+          <span
+            className="absolute top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-ink shadow-soft transition-[left] duration-700 motion-reduce:transition-none"
+            style={{ left: `${percent}%` }}
+          />
+        </div>
+        <p className="mt-2 text-center text-[0.65rem] font-semibold text-ink-faint">
+          Tensión del nudo: {level} de 5
+        </p>
       </div>
     </div>
   );

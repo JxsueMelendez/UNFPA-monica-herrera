@@ -18,8 +18,11 @@ import { Badge } from "@/components/ui/badge";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Modal } from "@/components/ui/modal";
-import { ConsequenceBanner } from "@/components/game3/consequence-banner";
 import { KnotGirl } from "@/components/game3/knot-girl";
+import {
+  KnotMoment,
+  type KnotMomentData,
+} from "@/components/game3/knot-moment";
 import { StoryScene } from "@/components/game3/story-scene";
 import { GamePageHeader } from "@/components/shared/game-page-header";
 import { LoadingScreen } from "@/components/shared/loading-screen";
@@ -63,11 +66,12 @@ export default function Game3Page() {
   const [stats, setStats] = useState<StoryStats>(INITIAL_STATS);
   const [decisions, setDecisions] = useState<string[]>([]);
   const [knots, setKnots] = useState(3);
-  const [banner, setBanner] = useState<{ impact?: string } | null>(null);
+  const [moment, setMoment] = useState<KnotMomentData | null>(null);
   const [transitioning, setTransitioning] = useState(false);
   const [resetOpen, setResetOpen] = useState(false);
   const [introOpen, setIntroOpen] = useState(true);
   const timeoutRef = useRef<number | null>(null);
+  const momentIdRef = useRef(0);
 
   useEffect(() => {
     if (!isReady || hydrated) return;
@@ -93,9 +97,18 @@ export default function Game3Page() {
     const nextNode = storyNodes[choice.next] ?? getStoryNode(START_NODE_ID);
     const delta = knotsDelta(choice.tone);
     const nextKnots = clampKnots(knots + delta);
+    const direction = nextKnots > knots ? "tight" : nextKnots < knots ? "loose" : "same";
     const nextDecisions = [...decisions, choice.label];
     const isEnding = Boolean(nextNode.isEnding);
 
+    momentIdRef.current += 1;
+    setMoment({
+      id: momentIdRef.current,
+      from: knots,
+      to: nextKnots,
+      direction,
+      impact: choice.impact,
+    });
     setKnots(nextKnots);
     setDecisions(nextDecisions);
     setTransitioning(true);
@@ -112,21 +125,17 @@ export default function Game3Page() {
     else if (delta > 0) playAlert();
     else playSoftClick();
 
-    if (choice.consequence) {
-      setBanner({ impact: choice.impact });
-      timeoutRef.current = window.setTimeout(() => {
-        setNodeId(nextNode.id);
-        setBanner(null);
-        setTransitioning(false);
-        scrollToTop();
-        if (isEnding) playSoftClick();
-      }, 1800);
-      return;
-    }
+    // Dejamos que el nudo se apriete o se afloje antes de cambiar de escena.
+    const duration = choice.consequence ? 2200 : direction === "same" ? 1200 : 1550;
 
-    setNodeId(nextNode.id);
-    setTransitioning(false);
-    window.setTimeout(() => scrollToTop(), 60);
+    if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+    timeoutRef.current = window.setTimeout(() => {
+      setNodeId(nextNode.id);
+      setMoment(null);
+      setTransitioning(false);
+      scrollToTop();
+      if (isEnding) playSoftClick();
+    }, duration);
   }
 
   function handleReplay() {
@@ -136,7 +145,7 @@ export default function Game3Page() {
     setStats(INITIAL_STATS);
     setDecisions([]);
     setKnots(3);
-    setBanner(null);
+    setMoment(null);
     setTransitioning(false);
     setResetOpen(false);
     setIntroOpen(true);
@@ -156,7 +165,7 @@ export default function Game3Page() {
         icon={Route}
         eyebrow="Juego 03 · Situaciones"
         title="Desenredá la situación"
-        description="Vas a leer situaciones que le pasan a mucha gente. Elegí qué harías: si te cuidás, los nudos se aflojan; si te enredás, se aprietan."
+        description="Vas a leer situaciones que le pasan a mucha gente. Elegí qué harías: si te cuidás, el nudo se afloja; si te enredás, se aprieta."
         tone="coral"
       >
         <div className="flex items-center gap-4 rounded-3xl border border-line bg-white/80 p-4 shadow-sm">
@@ -166,7 +175,7 @@ export default function Game3Page() {
           <div>
             <p className="text-[0.65rem] font-bold uppercase tracking-[0.14em] text-ink-faint">Situación</p>
             <p className="text-sm font-bold text-ink">{Math.min(node.chapter, 5)} de 5</p>
-            <p className="mt-0.5 text-xs font-medium text-ink-soft">Nudos: {knots}/5</p>
+            <p className="mt-0.5 text-xs font-medium text-ink-soft">Tensión del nudo: {knots}/5</p>
           </div>
         </div>
       </GamePageHeader>
@@ -219,7 +228,7 @@ export default function Game3Page() {
         </div>
       )}
 
-      <ConsequenceBanner visible={Boolean(banner)} impact={banner?.impact} />
+      <KnotMoment moment={moment} />
 
       <Modal open={resetOpen} onClose={() => setResetOpen(false)} className="max-w-md" ariaLabel="Reiniciar">
         <div className="p-7">
@@ -249,7 +258,7 @@ export default function Game3Page() {
             {[
               { n: "1", text: "Vas a leer situaciones que pasan en el día a día, en párrafos." },
               { n: "2", text: "En cada una elegís qué harías vos." },
-              { n: "3", text: "Si te cuidás y ponés límites, los nudos se aflojan; si te enredás o cedés ante red flags, se aprietan." },
+              { n: "3", text: "Si te cuidás y ponés límites, el nudo se afloja; si te enredás o cedés ante red flags, se aprieta." },
               { n: "4", text: "No hay respuestas perfectas, solo formas de ir desenredando lo que sentís." },
             ].map((step) => (
               <div key={step.n} className="flex gap-3 rounded-2xl border border-line/70 bg-white/70 p-3">

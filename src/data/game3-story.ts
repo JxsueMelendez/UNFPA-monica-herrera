@@ -102,7 +102,7 @@ export const storyNodes: Record<string, StoryNode> = {
     choices: [
       { id: "s5a", label: "Hablo con alguien de confianza y pongo distancia de lo que me hace daño.", tone: "healthy", next: "end-libre", effects: { autonomy: 2, support: 2, wellbeing: 2, goals: 1 } },
       { id: "s5b", label: "Intento poner límites claros y ver si los respetan, sin dejar de hablar con mi mara.", tone: "healthy", next: "end-camino", effects: { autonomy: 1, support: 2, wellbeing: 1 } },
-      { id: "s5c", label: "Me quedo callada y dejo que todo siga igual, aunque me siga doliendo.", tone: "risky", next: "end-nudos", consequence: true, impact: "Callar lo que sentís puede apretar más los nudos.", effects: { autonomy: -2, wellbeing: -2, support: -1 } },
+      { id: "s5c", label: "Me quedo callada y dejo que todo siga igual, aunque me siga doliendo.", tone: "risky", next: "end-nudos", consequence: true, impact: "Callar lo que sentís puede apretar más el nudo.", effects: { autonomy: -2, wellbeing: -2, support: -1 } },
     ],
   },
   "end-libre": {
@@ -120,7 +120,7 @@ export const storyNodes: Record<string, StoryNode> = {
       kind: "empowering",
       paragraphs: [
         "Pusiste límites y hablaste con alguien de confianza. No fue fácil, pero te diste cuenta de que no tenés que aguantar cosas que te hacen sentir mal.",
-        "Poco a poco los nudos se fueron aflojando: recuperaste tiempo para vos, para tus metas y para las personas que te suman.",
+        "Poco a poco el nudo se fue aflojando: recuperaste tiempo para vos, para tus metas y para las personas que te suman.",
       ],
       learnings: [
         "Poner límites es una forma de quererte.",
@@ -148,7 +148,7 @@ export const storyNodes: Record<string, StoryNode> = {
       kind: "hopeful",
       paragraphs: [
         "Decidiste poner límites y no alejarte de tu gente. Aún hay cosas que se sienten confusas, pero ya diste pasos para cuidarte.",
-        "Los nudos no desaparecen de un día para otro, pero cada decisión que tomás por vos los afloja un poco más.",
+        "El nudo no desaparece de un día para otro, pero cada decisión que tomás por vos lo afloja un poco más.",
       ],
       learnings: [
         "Está bien ir paso a paso, lo importante es no quedarte sola o solo.",
@@ -171,12 +171,12 @@ export const storyNodes: Record<string, StoryNode> = {
     isEnding: true,
     ending: {
       id: "nudos",
-      title: "Los nudos aprietan, pero podés aflojarlos",
+      title: "El nudo aprieta, pero podés aflojarlo",
       subtitle: "Aún estás a tiempo de pedir ayuda",
       kind: "cautionary",
       paragraphs: [
         "Decidiste quedarte callada y aguantar, aunque por dentro se siente pesado. Eso no te hace culpable: a veces es difícil ver la salida cuando estás en medio de todo.",
-        "Los nudos se sienten más apretados, pero siempre podés hablar con alguien de confianza y empezar a aflojarlos. No tenés que hacerlo sola o solo.",
+        "El nudo se siente más apretado, pero siempre podés hablar con alguien de confianza y empezar a aflojarlo. No tenés que hacerlo sola o solo.",
       ],
       learnings: [
         "Lo que te pasa importa y lo que sentís es válido.",

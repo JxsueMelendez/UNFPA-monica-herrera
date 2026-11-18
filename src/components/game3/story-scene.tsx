@@ -65,7 +65,7 @@ export function StoryScene({ node, disabled = false, onChoose }: StorySceneProps
               </h2>
             </div>
             <p className="mt-1 text-sm font-medium text-ink-faint">
-              No hay respuesta perfecta: elegí lo que harías y mirá cómo se mueven tus nudos.
+              No hay respuesta perfecta: elegí lo que harías y mirá cómo se mueve tu nudo.
             </p>
 
             <div className="mt-4 space-y-2.5">

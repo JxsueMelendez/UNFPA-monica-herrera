@@ -154,7 +154,7 @@ export interface StoryChoice {
   label: string;
   next: string;
   tone: ChoiceTone;
-  /** Activa la notificación «Esta acción tendrá consecuencias…». */
+  /** Activa el momento de nudo más intenso (consecuencia). */
   consequence?: boolean;
   /** Texto breve que resume el impacto de la decisión. */
   impact?: string;
