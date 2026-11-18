@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Clock3, MapPin, Sparkles } from "lucide-react";
+import { Clock3, Flag, MapPin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { ChoiceButton } from "@/components/game3/choice-button";
@@ -59,7 +59,7 @@ export function StoryScene({ node, disabled = false, onChoose }: StorySceneProps
 
           <div className="mt-8 border-t border-line/70 pt-6">
             <div className="flex items-center gap-2">
-              <Sparkles className="h-5 w-5 text-gold-deep" />
+              <Flag className="h-5 w-5 fill-current text-coral" />
               <h2 className="font-display text-2xl font-extrabold text-ink sm:text-3xl">
                 {node.prompt ?? "¿Qué harías tú?"}
               </h2>

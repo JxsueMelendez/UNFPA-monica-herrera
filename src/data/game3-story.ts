@@ -15,7 +15,7 @@ export const STAT_META: Record<
 > = {
   autonomy: { label: "Autonomía", short: "Tus decisiones", color: "bg-plum" },
   wellbeing: { label: "Bienestar", short: "Cómo te sientes", color: "bg-coral" },
-  goals: { label: "Tus metas", short: "Tus planes", color: "bg-gold" },
+  goals: { label: "Tus metas", short: "Tus planes", color: "bg-coral" },
   support: { label: "Tu gente", short: "Quién te apoya", color: "bg-teal" },
 };
 

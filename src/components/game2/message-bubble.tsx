@@ -66,18 +66,18 @@ export function MessageBubble({
           </span>
         ) : null}
 
+        <p className="whitespace-pre-wrap text-pretty font-medium leading-relaxed">
+          {message.text}
+        </p>
         {message.sticker ? (
           <img
             src={message.sticker}
             alt={message.stickerAlt ?? "Sticker"}
-            className="mb-1.5 h-24 w-24 rounded-xl object-cover"
+            className="mt-2 h-24 w-24 rounded-xl object-cover"
             loading="lazy"
             onError={(e) => { e.currentTarget.style.display = "none"; }}
           />
         ) : null}
-        <p className="whitespace-pre-wrap text-pretty font-medium leading-relaxed">
-          {message.text}
-        </p>
         <div
           className={cn(
             "mt-1 flex items-center justify-end gap-1.5 text-[0.62rem] font-semibold",

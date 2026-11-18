@@ -346,7 +346,7 @@ export default function Game1Page() {
 
             <div className="mx-auto mt-5 grid max-w-lg grid-cols-2 gap-3">
               <Button
-                variant="danger"
+                variant="coral"
                 size="lg"
                 onClick={() => handleDecision("question")}
                 disabled={!currentCard || Boolean(feedback || exiting)}
@@ -448,19 +448,35 @@ export default function Game1Page() {
       />
 
       <Modal open={introOpen} onClose={() => { setIntroOpen(false); setStarted(true); }} className="max-w-lg" ariaLabel="Cómo jugar ¿Lo compartes o lo cuestionas?">
-        <div className="p-6 sm:p-7">
-          <Badge variant="coral">Cómo jugar</Badge>
-          <h2 className="mt-3 font-display text-3xl font-extrabold text-ink">¿Lo compartes o lo cuestionas?</h2>
-          <div className="mt-4 space-y-3 text-sm font-medium leading-relaxed text-ink-soft">
-            <p><strong className="text-ink">1.</strong> Te van a salir publicaciones como las que ves en redes.</p>
-            <p><strong className="text-ink">2.</strong> Desliza o toca <strong className="text-teal-deep">Compartir</strong> si el mensaje está sano y respeta.</p>
-            <p><strong className="text-ink">3.</strong> Elige <strong className="text-coral-deep">Cuestionar</strong> si ves celos, control, secretos o mala vibra.</p>
-            <p><strong className="text-ink">4.</strong> Después de cada tarjeta te contamos por qué, sin juzgar a nadie.</p>
+        <div className="overflow-hidden">
+          <div className="bg-coral-soft/60 px-6 pb-5 pt-6 sm:px-7">
+            <div className="flex items-center gap-3">
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-coral text-white shadow-soft">
+                <ArrowLeftRight className="h-6 w-6" />
+              </span>
+              <div>
+                <Badge variant="coral">Cómo jugar</Badge>
+                <h2 className="mt-1 font-display text-2xl font-extrabold leading-tight text-ink sm:text-3xl">¿Lo compartes o lo cuestionas?</h2>
+              </div>
+            </div>
           </div>
-          <Button variant="coral" size="lg" className="mt-6 w-full" onClick={() => { setIntroOpen(false); setStarted(true); playSoftClick(); }}>
-            Dale, empecemos
-            <ArrowRight className="h-4 w-4" />
-          </Button>
+          <div className="space-y-3 p-6 sm:p-7">
+            {[
+              { n: "1", text: "Te van a salir publicaciones como las que ves en redes." },
+              { n: "2", text: <span>Desliza o toca <strong className="text-teal-deep">Compartir</strong> si el mensaje está sano y respeta.</span> },
+              { n: "3", text: <span>Elige <strong className="text-coral-deep">Cuestionar</strong> si ves celos, control, secretos o mala vibra (red flags).</span> },
+              { n: "4", text: "Después de cada tarjeta te contamos por qué, sin juzgar a nadie." },
+            ].map((step) => (
+              <div key={step.n} className="flex gap-3 rounded-2xl border border-line/70 bg-white/70 p-3">
+                <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-coral text-xs font-extrabold text-white">{step.n}</span>
+                <p className="text-sm font-medium leading-relaxed text-ink-soft">{step.text}</p>
+              </div>
+            ))}
+            <Button variant="coral" size="lg" className="mt-2 w-full" onClick={() => { setIntroOpen(false); setStarted(true); playSoftClick(); }}>
+              Dale, empecemos
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </div>
         </div>
       </Modal>
     </PageShell>

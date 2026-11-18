@@ -24,9 +24,9 @@ const config: Config = {
           mist: "#EDEAF6",
         },
         coral: {
-          DEFAULT: "#5C4989",
-          soft: "#E9E5F5",
-          deep: "#43366E",
+          DEFAULT: "#E04F5F",
+          soft: "#FDECEE",
+          deep: "#B83242",
         },
         teal: {
           DEFAULT: "#32584D",
@@ -54,7 +54,7 @@ const config: Config = {
       boxShadow: {
         soft: "0 18px 50px -24px rgba(67, 54, 110, 0.28)",
         lift: "0 28px 70px -30px rgba(67, 54, 110, 0.38)",
-        glow: "0 0 0 1px rgba(92, 73, 137, 0.14), 0 24px 60px -28px rgba(92, 73, 137, 0.5)",
+        glow: "0 0 0 1px rgba(224, 79, 95, 0.16), 0 24px 60px -28px rgba(224, 79, 95, 0.45)",
       },
       backgroundImage: {
         "grid-warm":

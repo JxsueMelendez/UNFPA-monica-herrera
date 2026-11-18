@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
+import { Flag } from "lucide-react";
 
 interface ConsequenceBannerProps {
   visible: boolean;
@@ -34,20 +34,20 @@ export function ConsequenceBanner({ visible, impact }: ConsequenceBannerProps) {
             />
             <div
               aria-hidden
-              className="pointer-events-none absolute -bottom-20 -left-16 h-48 w-48 rounded-full bg-gold/20 blur-3xl"
+              className="pointer-events-none absolute -bottom-20 -left-16 h-48 w-48 rounded-full bg-coral/20 blur-3xl"
             />
             <motion.span
               aria-hidden
-              className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full border border-gold/20"
+              className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full border border-coral/30"
               animate={{ scale: [0.8, 1.35], opacity: [0.55, 0] }}
               transition={{ duration: 2.2, repeat: Infinity, ease: "easeOut" }}
             />
             <div className="relative">
-              <span className="mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-gold text-plum-deep shadow-soft">
-                <Sparkles className="h-6 w-6" />
+              <span className="mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-coral text-white shadow-soft">
+                <Flag className="h-6 w-6 fill-current" />
               </span>
-              <p className="mt-5 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-gold">
-                El hilo se mueve
+              <p className="mt-5 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-coral">
+                Red flag / El hilo se mueve
               </p>
               <h2 className="mt-2 font-display text-2xl font-semibold leading-tight sm:text-3xl">
                 Esta acción tendrá consecuencias…
@@ -57,7 +57,7 @@ export function ConsequenceBanner({ visible, impact }: ConsequenceBannerProps) {
                   {impact}
                 </p>
               ) : null}
-              <div className="mx-auto mt-5 h-1 w-20 rounded-full bg-gold/70" />
+              <div className="mx-auto mt-5 h-1 w-20 rounded-full bg-coral/70" />
             </div>
           </motion.div>
         </motion.div>

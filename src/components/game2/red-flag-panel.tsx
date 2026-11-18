@@ -85,7 +85,7 @@ export function RedFlagPanel({
                     <Badge variant="outline" className="font-bold">{redFlag.category}</Badge>
                   </div>
                 ) : (
-                  <p className="mt-1 text-sm font-semibold text-teal-deep">
+                  <p className="mt-1 text-sm font-semibold text-coral-deep">
                     Un mensaje tranqui o de cuidado también se puede leer.
                   </p>
                 )}
@@ -108,11 +108,11 @@ export function RedFlagPanel({
                     {redFlag.explanation}
                   </p>
                 </div>
-                <div className="mt-4 rounded-2xl border border-teal/15 bg-teal-soft/50 p-4">
+                <div className="mt-4 rounded-2xl border border-coral/20 bg-coral-soft/50 p-4">
                   <div className="flex items-start gap-2.5">
-                    <Lightbulb className="mt-0.5 h-4 w-4 shrink-0 text-teal-deep" />
+                    <Lightbulb className="mt-0.5 h-4 w-4 shrink-0 text-coral-deep" />
                     <div>
-                      <p className="text-sm font-extrabold uppercase tracking-[0.08em] text-teal-deep">
+                      <p className="text-sm font-extrabold uppercase tracking-[0.08em] text-coral-deep">
                         Qué puedes hacer
                       </p>
                       <p className="mt-1 text-sm font-medium leading-relaxed text-ink-soft">
@@ -123,7 +123,7 @@ export function RedFlagPanel({
                 </div>
               </>
             ) : (
-              <div className="mt-4 rounded-2xl bg-teal-soft/40 p-4">
+              <div className="mt-4 rounded-2xl bg-coral-soft/40 p-4">
                 <p className="text-sm font-medium leading-relaxed text-ink-soft">
                   {selectedMessage.neutralNote ??
                     "Este mensaje no es señal de alerta por sí solo. El contexto y si se repite importan."}

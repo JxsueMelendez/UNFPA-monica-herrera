@@ -50,9 +50,9 @@ function knotsDelta(tone: StoryChoice["tone"]) {
 }
 
 const endingStyles = {
-  empowering: { header: "bg-teal-deep", badge: "gold" as const, label: "Final libre", icon: Sparkles },
-  hopeful: { header: "bg-plum-deep", badge: "gold" as const, label: "Final en camino", icon: HeartHandshake },
-  cautionary: { header: "bg-coral-deep", badge: "gold" as const, label: "Final de cuidado", icon: LifeBuoy },
+  empowering: { header: "bg-teal-deep", badge: "coral" as const, label: "Final libre", icon: Sparkles },
+  hopeful: { header: "bg-plum-deep", badge: "coral" as const, label: "Final en camino", icon: HeartHandshake },
+  cautionary: { header: "bg-coral-deep", badge: "coral" as const, label: "Final de cuidado", icon: LifeBuoy },
 };
 
 export default function Game3Page() {
@@ -157,10 +157,10 @@ export default function Game3Page() {
         eyebrow="Juego 03 · Situaciones"
         title="Desenreda la situación"
         description="Vas a leer situaciones reales que le pasan a mucha gente. Elige qué harías: si te cuidas, los nudos se aflojan; si te enredas, se aprietan."
-        tone="gold"
+        tone="coral"
       >
         <div className="flex items-center gap-4 rounded-3xl border border-line bg-white/80 p-4 shadow-sm">
-          <ProgressRing value={Math.min(node.chapter, 5)} max={5} size={68} stroke={7} strokeClassName="stroke-gold">
+          <ProgressRing value={Math.min(node.chapter, 5)} max={5} size={68} stroke={7} strokeClassName="stroke-coral">
             <span className="font-display text-lg font-semibold text-ink">{Math.min(node.chapter, 5)}</span>
           </ProgressRing>
           <div>
@@ -178,12 +178,12 @@ export default function Game3Page() {
           <section className="space-y-4">
             <div className="flex flex-col gap-3 rounded-2xl border border-line/80 bg-white/70 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex items-center gap-2 text-xs font-bold text-ink-soft">
-                <Compass className="h-4 w-4 text-gold-deep" />
+                <Compass className="h-4 w-4 text-coral-deep" />
                 Situación {node.chapter} de 5
               </div>
               <div className="flex flex-1 items-center gap-1.5 sm:max-w-xs">
                 {CHAPTERS.map((chapter) => (
-                  <span key={chapter} className={cn("h-1.5 flex-1 rounded-full transition-colors", chapter <= node.chapter ? "bg-gold" : "bg-sand")} />
+                  <span key={chapter} className={cn("h-1.5 flex-1 rounded-full transition-colors", chapter <= node.chapter ? "bg-coral" : "bg-sand")} />
                 ))}
               </div>
             </div>
@@ -233,19 +233,35 @@ export default function Game3Page() {
       </Modal>
 
       <Modal open={introOpen} onClose={() => { setIntroOpen(false); playSoftClick(); }} className="max-w-lg" ariaLabel="Cómo jugar Desenreda la situación">
-        <div className="p-6 sm:p-7">
-          <Badge variant="gold">Cómo jugar</Badge>
-          <h2 className="mt-3 font-display text-3xl font-extrabold text-ink">Desenreda la situación</h2>
-          <div className="mt-4 space-y-3 text-sm font-medium leading-relaxed text-ink-soft">
-            <p><strong className="text-ink">1.</strong> Vas a leer situaciones que pasan en la vida real, en párrafos.</p>
-            <p><strong className="text-ink">2.</strong> En cada una eliges qué harías tú.</p>
-            <p><strong className="text-ink">3.</strong> Abajo verás a una chica con nudos: si te cuidas y pones límites, los nudos se aflojan; si te enredas, se aprietan.</p>
-            <p><strong className="text-ink">4.</strong> No hay respuestas perfectas, solo formas de ir desenredando lo que sientes.</p>
+        <div className="overflow-hidden">
+          <div className="bg-coral-soft/60 px-6 pb-5 pt-6 sm:px-7">
+            <div className="flex items-center gap-3">
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-coral text-white shadow-soft">
+                <Route className="h-6 w-6" />
+              </span>
+              <div>
+                <Badge variant="coral">Cómo jugar</Badge>
+                <h2 className="mt-1 font-display text-2xl font-extrabold leading-tight text-ink sm:text-3xl">Desenreda la situación</h2>
+              </div>
+            </div>
           </div>
-          <Button variant="coral" size="lg" className="mt-6 w-full" onClick={() => { setIntroOpen(false); playSoftClick(); }}>
-            Empezar
-            <ArrowRight className="h-4 w-4" />
-          </Button>
+          <div className="space-y-3 p-6 sm:p-7">
+            {[
+              { n: "1", text: "Vas a leer situaciones que pasan en la vida real, en párrafos." },
+              { n: "2", text: "En cada una eliges qué harías tú." },
+              { n: "3", text: "Si te cuidas y pones límites, los nudos se aflojan; si te enredas o cedes ante red flags, se aprietan." },
+              { n: "4", text: "No hay respuestas perfectas, solo formas de ir desenredando lo que sientes." },
+            ].map((step) => (
+              <div key={step.n} className="flex gap-3 rounded-2xl border border-line/70 bg-white/70 p-3">
+                <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-coral text-xs font-extrabold text-white">{step.n}</span>
+                <p className="text-sm font-medium leading-relaxed text-ink-soft">{step.text}</p>
+              </div>
+            ))}
+            <Button variant="coral" size="lg" className="mt-2 w-full" onClick={() => { setIntroOpen(false); playSoftClick(); }}>
+              Empezar
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </div>
         </div>
       </Modal>
     </PageShell>
@@ -277,10 +293,10 @@ function EndingView({ ending, knots, decisions, onReplay }: { ending: StoryEndin
                   {ending.learnings.map((l) => <li key={l} className="flex gap-2 text-sm font-medium text-ink-soft"><span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-teal" />{l}</li>)}
                 </ul>
               </div>
-              <div className="mt-4 rounded-2xl border border-gold/20 bg-gold-soft/60 p-5">
-                <div className="flex items-center gap-2"><LifeBuoy className="h-4 w-4 text-gold-deep" /><h3 className="font-display text-lg font-bold text-ink">Si necesitas apoyo</h3></div>
+              <div className="mt-4 rounded-2xl border border-coral/20 bg-coral-soft/50 p-5">
+                <div className="flex items-center gap-2"><LifeBuoy className="h-4 w-4 text-coral-deep" /><h3 className="font-display text-lg font-bold text-ink">Si necesitas apoyo</h3></div>
                 <ul className="mt-3 space-y-2">
-                  {ending.support.map((s) => <li key={s} className="flex gap-2 text-sm font-medium text-ink-soft"><span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-deep" />{s}</li>)}
+                  {ending.support.map((s) => <li key={s} className="flex gap-2 text-sm font-medium text-ink-soft"><span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />{s}</li>)}
                 </ul>
               </div>
             </div>

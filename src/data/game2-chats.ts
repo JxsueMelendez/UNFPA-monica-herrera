@@ -23,7 +23,7 @@ export const game2Chat: Game2Chat = {
       from: "teen",
       text: "Sí, perdón, andaba cenando con mi familia.",
       time: "21:10",
-      sticker: "/stickers/Love you!.jpg",
+      sticker: "/stickers/love-you.jpg",
       stickerAlt: "Sticker Love you",
     },
     {
@@ -45,7 +45,7 @@ export const game2Chat: Game2Chat = {
       from: "teen",
       text: "La neta no pensé que tuviera que avisarte.",
       time: "21:12",
-      sticker: "/stickers/minion papoi.jpg",
+      sticker: "/stickers/minion-papoi.jpg",
       stickerAlt: "Sticker reacción",
     },
     {

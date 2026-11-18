@@ -129,13 +129,12 @@ export function SwipeCard({
               <img
                 src={card.visual.image}
                 alt={card.visual.imageAlt ?? card.caption}
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-contain bg-cream/80 p-6 sm:p-8"
                 loading="lazy"
-                referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/15 to-transparent" />
               {card.visual.label ? (
-                <span className="absolute left-3 top-3 rounded-full border border-white/50 bg-black/30 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-white backdrop-blur-sm">
+                <span className="absolute left-3 top-3 rounded-full border border-coral/30 bg-white/90 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-coral-deep shadow-sm">
                   {card.visual.label}
                 </span>
               ) : null}

@@ -160,7 +160,7 @@ export default function Game2Page() {
             <div className="relative overflow-hidden bg-coral-deep px-7 py-8 text-white sm:px-10 sm:py-10">
               <div
                 aria-hidden
-                className="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-gold/20 blur-3xl"
+                className="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-white/15 blur-3xl"
               />
               <div
                 aria-hidden
@@ -168,7 +168,7 @@ export default function Game2Page() {
               />
               <div className="relative flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <div className="flex items-center gap-2 text-gold-soft">
+                  <div className="flex items-center gap-2 text-white/90">
                     <Trophy className="h-5 w-5" />
                     <span className="text-xs font-bold uppercase tracking-[0.16em]">
                       Revisión terminada
@@ -192,7 +192,7 @@ export default function Game2Page() {
                   max={GAME2_TOTAL_FLAGS}
                   size={116}
                   stroke={9}
-                  strokeClassName="stroke-gold"
+                  strokeClassName="stroke-white"
                   className="shrink-0"
                 >
                   <span className="text-center">
@@ -225,11 +225,11 @@ export default function Game2Page() {
                     Pasadas por alto
                   </p>
                 </div>
-                <div className="rounded-2xl bg-gold-soft/60 p-4 text-center">
-                  <p className="font-display text-2xl font-semibold text-gold-deep">
+                <div className="rounded-2xl bg-coral-soft/60 p-4 text-center">
+                  <p className="font-display text-2xl font-semibold text-coral-deep">
                     {GAME2_TOTAL_FLAGS}
                   </p>
-                  <p className="text-[0.62rem] font-bold uppercase tracking-[0.1em] text-gold-deep/70">
+                  <p className="text-[0.62rem] font-bold uppercase tracking-[0.1em] text-coral-deep/70">
                     Señales en el chat
                   </p>
                 </div>
@@ -257,14 +257,10 @@ export default function Game2Page() {
                           className="rounded-2xl border border-line/80 bg-sand/40 p-4"
                         >
                           <div className="flex flex-wrap items-center gap-2">
-                            <Badge
-                              variant={
-                                redFlag.severity === "alta" ? "coral" : "gold"
-                              }
-                            >
+                            <Badge variant="coral">
                               Señal {redFlag.severity}
                             </Badge>
-                            <Badge variant="outline">{redFlag.category}</Badge>
+                            <Badge variant="outline" className="border-coral/30 text-coral-deep">{redFlag.category}</Badge>
                             <span className="text-[0.65rem] font-semibold text-ink-faint">
                               {message.time}
                             </span>
@@ -275,8 +271,8 @@ export default function Game2Page() {
                           <p className="mt-2 text-sm leading-relaxed text-ink">
                             {redFlag.explanation}
                           </p>
-                          <p className="mt-2 rounded-xl bg-white/70 px-3 py-2 text-xs leading-relaxed text-ink-soft">
-                            <strong className="font-semibold text-teal-deep">
+                          <p className="mt-2 rounded-xl border border-coral/15 bg-coral-soft/40 px-3 py-2 text-xs leading-relaxed text-ink-soft">
+                            <strong className="font-semibold text-coral-deep">
                               Qué hacer:
                             </strong>{" "}
                             {redFlag.advice}
@@ -287,9 +283,9 @@ export default function Game2Page() {
                   </div>
                 </div>
               ) : (
-                <div className="mt-6 rounded-3xl border border-teal/20 bg-teal-soft/40 p-5">
+                <div className="mt-6 rounded-3xl border border-coral/20 bg-coral-soft/40 p-5">
                   <div className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-teal-deep" />
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-coral-deep" />
                     <div>
                       <p className="font-display text-lg font-semibold text-ink">
                         Encontraste las siete banderas
@@ -297,7 +293,7 @@ export default function Game2Page() {
                       <p className="mt-1 text-sm leading-relaxed text-ink-soft">
                         Control sutil, infantilización, vigilancia, aislamiento,
                         chantaje emocional, secretos y presión sexual. Reconocerlas
-                        te ayuda a nombrar lo que antes parecía “normal”.
+                        te ayuda a cachar lo que antes parecía “normal”.
                       </p>
                     </div>
                   </div>
@@ -385,19 +381,35 @@ export default function Game2Page() {
       )}
 
       <Modal open={introOpen} onClose={() => { setIntroOpen(false); setStarted(true); }} className="max-w-lg" ariaLabel="Cómo jugar Entre líneas">
-        <div className="p-6 sm:p-7">
-          <Badge variant="coral">Cómo jugar</Badge>
-          <h2 className="mt-3 font-display text-3xl font-extrabold text-ink">Entre líneas</h2>
-          <div className="mt-4 space-y-3 text-sm font-medium leading-relaxed text-ink-soft">
-            <p><strong className="text-ink">1.</strong> Lee el chat: parece tranqui, pero trae red flags escondidas.</p>
-            <p><strong className="text-ink">2.</strong> Toca los mensajes que te den mala espina (control, chantaje, secretos, presión).</p>
-            <p><strong className="text-ink">3.</strong> Al tocarlos verás por qué son señal y qué puedes hacer. Los mensajes buenos/tiernos también se explican.</p>
-            <p><strong className="text-ink">4.</strong> Cuando sientas que ya viste todo, dale a <strong className="text-ink">Terminar revisión</strong>.</p>
+        <div className="overflow-hidden">
+          <div className="bg-coral-soft/60 px-6 pb-5 pt-6 sm:px-7">
+            <div className="flex items-center gap-3">
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-coral text-white shadow-soft">
+                <Flag className="h-6 w-6 fill-current" />
+              </span>
+              <div>
+                <Badge variant="coral">Cómo jugar</Badge>
+                <h2 className="mt-1 font-display text-2xl font-extrabold leading-tight text-ink sm:text-3xl">Entre líneas</h2>
+              </div>
+            </div>
           </div>
-          <Button variant="coral" size="lg" className="mt-6 w-full" onClick={() => { setIntroOpen(false); setStarted(true); playSoftClick(); }}>
-            Empezar
-            <ArrowRight className="h-4 w-4" />
-          </Button>
+          <div className="space-y-3 p-6 sm:p-7">
+            {[
+              { n: "1", text: "Lee el chat: parece tranqui, pero trae red flags escondidas." },
+              { n: "2", text: "Toca los mensajes que te den mala espina (control, chantaje, secretos, presión)." },
+              { n: "3", text: "Al tocarlos verás por qué son señal y qué puedes hacer. Los mensajes buenos/tiernos también se explican." },
+              { n: "4", text: <span>Cuando sientas que ya viste todo, dale a <strong className="text-coral-deep">Terminar revisión</strong>.</span> },
+            ].map((step) => (
+              <div key={step.n} className="flex gap-3 rounded-2xl border border-line/70 bg-white/70 p-3">
+                <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-coral text-xs font-extrabold text-white">{step.n}</span>
+                <p className="text-sm font-medium leading-relaxed text-ink-soft">{step.text}</p>
+              </div>
+            ))}
+            <Button variant="coral" size="lg" className="mt-2 w-full" onClick={() => { setIntroOpen(false); setStarted(true); playSoftClick(); }}>
+              Empezar
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </div>
         </div>
       </Modal>
     </PageShell>

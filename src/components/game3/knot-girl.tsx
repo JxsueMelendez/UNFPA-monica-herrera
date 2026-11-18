@@ -54,7 +54,7 @@ export function KnotGirl({ knots }: KnotGirlProps) {
         <div className="relative h-36 w-24 shrink-0" aria-hidden>
           <svg viewBox="0 0 100 150" className="h-full w-full">
             {/* head */}
-            <circle cx="50" cy="22" r="14" className="fill-gold-soft stroke-plum" strokeWidth="3" />
+            <circle cx="50" cy="22" r="14" className="fill-coral-soft stroke-plum" strokeWidth="3" />
             {/* body */}
             <path d="M50 36 C50 36, 38 55, 38 70 L38 95 C38 105, 62 105, 62 95 L62 70 C62 55, 50 36, 50 36Z" className="fill-plum-mist stroke-plum" strokeWidth="3" />
             {/* arms */}
